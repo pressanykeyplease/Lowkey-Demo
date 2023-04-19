@@ -34,12 +34,27 @@ private extension ChatViewController {
 
     func configureNavigationBar() {
         navigationItem.titleView = ChatNavigationTitleView(title: "Lowkey Squad", subtitle: "1 member • 1 online")
-        let leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: nil)
+        navigationItem.leftBarButtonItem = makeLeftBarButtonItem()
+        navigationItem.rightBarButtonItem = makeRightBarButtonItem()
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .Navigation.backgroundColor
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+    }
+
+    func makeLeftBarButtonItem() -> UIBarButtonItem {
+        let image = UIImage(systemName: "xmark")
+        let leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: nil)
         leftBarButtonItem.tintColor = .Navigation.tintColor
-        navigationItem.leftBarButtonItem = leftBarButtonItem
-        let userpicView = ChatUserpicView(imgae: UIImage(named: "elon-musk"))
+        return leftBarButtonItem
+    }
+
+    func makeRightBarButtonItem() -> UIBarButtonItem {
+        let image = UIImage(named: "elon-musk")
+        let userpicView = ChatUserpicView(imgae: image)
         let rightBarButtonItem = UIBarButtonItem(customView: userpicView)
-        navigationItem.rightBarButtonItem = rightBarButtonItem
+        return rightBarButtonItem
     }
 }
 

@@ -17,6 +17,12 @@
 		2335B59929F012DC004E0C96 /* PollCreationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B59429F012DC004E0C96 /* PollCreationRouter.swift */; };
 		2335B59A29F012DC004E0C96 /* PollCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B59529F012DC004E0C96 /* PollCreationViewController.swift */; };
 		2335B59B29F012DC004E0C96 /* PollCreationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B59629F012DC004E0C96 /* PollCreationInteractor.swift */; };
+		2335B59E29F01409004E0C96 /* ChatNavigationTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B59D29F01409004E0C96 /* ChatNavigationTitleView.swift */; };
+		2335B5A129F0142E004E0C96 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2335B5A029F0142E004E0C96 /* SnapKit */; };
+		2335B5A629F015F3004E0C96 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2335B5A329F015F3004E0C96 /* Poppins-Medium.ttf */; };
+		2335B5A729F015F3004E0C96 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2335B5A429F015F3004E0C96 /* Poppins-Regular.ttf */; };
+		2335B5A829F015F3004E0C96 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2335B5A529F015F3004E0C96 /* Poppins-SemiBold.ttf */; };
+		2335B5AE29F016EE004E0C96 /* UILabel+style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B5AD29F016EE004E0C96 /* UILabel+style.swift */; };
 		23FADC2129F000EB000FC509 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FADC2029F000EB000FC509 /* AppDelegate.swift */; };
 		23FADC2329F000EB000FC509 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FADC2229F000EB000FC509 /* SceneDelegate.swift */; };
 		23FADC2A29F000ED000FC509 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23FADC2929F000ED000FC509 /* Assets.xcassets */; };
@@ -34,6 +40,11 @@
 		2335B59429F012DC004E0C96 /* PollCreationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollCreationRouter.swift; sourceTree = "<group>"; };
 		2335B59529F012DC004E0C96 /* PollCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollCreationViewController.swift; sourceTree = "<group>"; };
 		2335B59629F012DC004E0C96 /* PollCreationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollCreationInteractor.swift; sourceTree = "<group>"; };
+		2335B59D29F01409004E0C96 /* ChatNavigationTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatNavigationTitleView.swift; sourceTree = "<group>"; };
+		2335B5A329F015F3004E0C96 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		2335B5A429F015F3004E0C96 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		2335B5A529F015F3004E0C96 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		2335B5AD29F016EE004E0C96 /* UILabel+style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+style.swift"; sourceTree = "<group>"; };
 		23FADC1D29F000EB000FC509 /* Lowkey-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lowkey-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23FADC2029F000EB000FC509 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23FADC2229F000EB000FC509 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2335B5A129F0142E004E0C96 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +75,40 @@
 				2335B59629F012DC004E0C96 /* PollCreationInteractor.swift */,
 			);
 			path = PollCreation;
+			sourceTree = "<group>";
+		};
+		2335B59C29F013E2004E0C96 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2335B59D29F01409004E0C96 /* ChatNavigationTitleView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2335B5A229F015DE004E0C96 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2335B5A329F015F3004E0C96 /* Poppins-Medium.ttf */,
+				2335B5A429F015F3004E0C96 /* Poppins-Regular.ttf */,
+				2335B5A529F015F3004E0C96 /* Poppins-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		2335B5A929F0163F004E0C96 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				2335B5AA29F01649004E0C96 /* Extensions */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		2335B5AA29F01649004E0C96 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2335B5AD29F016EE004E0C96 /* UILabel+style.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		23FADC1429F000EB000FC509 = {
@@ -85,8 +131,10 @@
 			isa = PBXGroup;
 			children = (
 				23FADC3429F000F4000FC509 /* Application */,
+				2335B5A929F0163F004E0C96 /* Core */,
 				23FADC3629F0016B000FC509 /* Chat */,
 				2335B59129F012C4004E0C96 /* PollCreation */,
+				2335B59C29F013E2004E0C96 /* Views */,
 				23FADC3529F000FF000FC509 /* Resources */,
 			);
 			path = "Lowkey-Demo";
@@ -104,6 +152,7 @@
 		23FADC3529F000FF000FC509 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2335B5A229F015DE004E0C96 /* Fonts */,
 				23FADC2929F000ED000FC509 /* Assets.xcassets */,
 				23FADC2B29F000ED000FC509 /* LaunchScreen.storyboard */,
 				23FADC2E29F000ED000FC509 /* Info.plist */,
@@ -139,6 +188,9 @@
 			dependencies = (
 			);
 			name = "Lowkey-Demo";
+			packageProductDependencies = (
+				2335B5A029F0142E004E0C96 /* SnapKit */,
+			);
 			productName = "Lowkey-Demo";
 			productReference = 23FADC1D29F000EB000FC509 /* Lowkey-Demo.app */;
 			productType = "com.apple.product-type.application";
@@ -167,6 +219,9 @@
 				Base,
 			);
 			mainGroup = 23FADC1429F000EB000FC509;
+			packageReferences = (
+				2335B59F29F0142E004E0C96 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 23FADC1E29F000EB000FC509 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -181,8 +236,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2335B5A829F015F3004E0C96 /* Poppins-SemiBold.ttf in Resources */,
+				2335B5A629F015F3004E0C96 /* Poppins-Medium.ttf in Resources */,
 				23FADC2D29F000ED000FC509 /* LaunchScreen.storyboard in Resources */,
 				23FADC2A29F000ED000FC509 /* Assets.xcassets in Resources */,
+				2335B5A729F015F3004E0C96 /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,7 +262,9 @@
 				2335B58E29F004AF004E0C96 /* ChatViewController.swift in Sources */,
 				2335B58D29F004AF004E0C96 /* ChatRouter.swift in Sources */,
 				2335B59829F012DC004E0C96 /* PollCreationPresenter.swift in Sources */,
+				2335B59E29F01409004E0C96 /* ChatNavigationTitleView.swift in Sources */,
 				2335B58F29F004AF004E0C96 /* ChatInteractor.swift in Sources */,
+				2335B5AE29F016EE004E0C96 /* UILabel+style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +476,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2335B59F29F0142E004E0C96 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2335B5A029F0142E004E0C96 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2335B59F29F0142E004E0C96 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 23FADC1529F000EB000FC509 /* Project object */;
 }

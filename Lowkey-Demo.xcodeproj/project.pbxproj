@@ -7,20 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2335B58B29F004AF004E0C96 /* ChatModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B58629F004AF004E0C96 /* ChatModuleBuilder.swift */; };
+		2335B58C29F004AF004E0C96 /* ChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B58729F004AF004E0C96 /* ChatPresenter.swift */; };
+		2335B58D29F004AF004E0C96 /* ChatRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B58829F004AF004E0C96 /* ChatRouter.swift */; };
+		2335B58E29F004AF004E0C96 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B58929F004AF004E0C96 /* ChatViewController.swift */; };
+		2335B58F29F004AF004E0C96 /* ChatInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B58A29F004AF004E0C96 /* ChatInteractor.swift */; };
+		2335B59729F012DC004E0C96 /* PollCreationModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B59229F012DC004E0C96 /* PollCreationModuleBuilder.swift */; };
+		2335B59829F012DC004E0C96 /* PollCreationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B59329F012DC004E0C96 /* PollCreationPresenter.swift */; };
+		2335B59929F012DC004E0C96 /* PollCreationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B59429F012DC004E0C96 /* PollCreationRouter.swift */; };
+		2335B59A29F012DC004E0C96 /* PollCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B59529F012DC004E0C96 /* PollCreationViewController.swift */; };
+		2335B59B29F012DC004E0C96 /* PollCreationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B59629F012DC004E0C96 /* PollCreationInteractor.swift */; };
 		23FADC2129F000EB000FC509 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FADC2029F000EB000FC509 /* AppDelegate.swift */; };
 		23FADC2329F000EB000FC509 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FADC2229F000EB000FC509 /* SceneDelegate.swift */; };
-		23FADC2529F000EB000FC509 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FADC2429F000EB000FC509 /* ViewController.swift */; };
-		23FADC2829F000EB000FC509 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23FADC2629F000EB000FC509 /* Main.storyboard */; };
 		23FADC2A29F000ED000FC509 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23FADC2929F000ED000FC509 /* Assets.xcassets */; };
 		23FADC2D29F000ED000FC509 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23FADC2B29F000ED000FC509 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2335B58629F004AF004E0C96 /* ChatModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModuleBuilder.swift; sourceTree = "<group>"; };
+		2335B58729F004AF004E0C96 /* ChatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPresenter.swift; sourceTree = "<group>"; };
+		2335B58829F004AF004E0C96 /* ChatRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRouter.swift; sourceTree = "<group>"; };
+		2335B58929F004AF004E0C96 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		2335B58A29F004AF004E0C96 /* ChatInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInteractor.swift; sourceTree = "<group>"; };
+		2335B59229F012DC004E0C96 /* PollCreationModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollCreationModuleBuilder.swift; sourceTree = "<group>"; };
+		2335B59329F012DC004E0C96 /* PollCreationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollCreationPresenter.swift; sourceTree = "<group>"; };
+		2335B59429F012DC004E0C96 /* PollCreationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollCreationRouter.swift; sourceTree = "<group>"; };
+		2335B59529F012DC004E0C96 /* PollCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollCreationViewController.swift; sourceTree = "<group>"; };
+		2335B59629F012DC004E0C96 /* PollCreationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollCreationInteractor.swift; sourceTree = "<group>"; };
 		23FADC1D29F000EB000FC509 /* Lowkey-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lowkey-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23FADC2029F000EB000FC509 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23FADC2229F000EB000FC509 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		23FADC2429F000EB000FC509 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		23FADC2729F000EB000FC509 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		23FADC2929F000ED000FC509 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23FADC2C29F000ED000FC509 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23FADC2E29F000ED000FC509 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -37,6 +53,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2335B59129F012C4004E0C96 /* PollCreation */ = {
+			isa = PBXGroup;
+			children = (
+				2335B59229F012DC004E0C96 /* PollCreationModuleBuilder.swift */,
+				2335B59329F012DC004E0C96 /* PollCreationPresenter.swift */,
+				2335B59429F012DC004E0C96 /* PollCreationRouter.swift */,
+				2335B59529F012DC004E0C96 /* PollCreationViewController.swift */,
+				2335B59629F012DC004E0C96 /* PollCreationInteractor.swift */,
+			);
+			path = PollCreation;
+			sourceTree = "<group>";
+		};
 		23FADC1429F000EB000FC509 = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +84,43 @@
 		23FADC1F29F000EB000FC509 /* Lowkey-Demo */ = {
 			isa = PBXGroup;
 			children = (
+				23FADC3429F000F4000FC509 /* Application */,
+				23FADC3629F0016B000FC509 /* Chat */,
+				2335B59129F012C4004E0C96 /* PollCreation */,
+				23FADC3529F000FF000FC509 /* Resources */,
+			);
+			path = "Lowkey-Demo";
+			sourceTree = "<group>";
+		};
+		23FADC3429F000F4000FC509 /* Application */ = {
+			isa = PBXGroup;
+			children = (
 				23FADC2029F000EB000FC509 /* AppDelegate.swift */,
 				23FADC2229F000EB000FC509 /* SceneDelegate.swift */,
-				23FADC2429F000EB000FC509 /* ViewController.swift */,
-				23FADC2629F000EB000FC509 /* Main.storyboard */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		23FADC3529F000FF000FC509 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				23FADC2929F000ED000FC509 /* Assets.xcassets */,
 				23FADC2B29F000ED000FC509 /* LaunchScreen.storyboard */,
 				23FADC2E29F000ED000FC509 /* Info.plist */,
 			);
-			path = "Lowkey-Demo";
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		23FADC3629F0016B000FC509 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				2335B58629F004AF004E0C96 /* ChatModuleBuilder.swift */,
+				2335B58729F004AF004E0C96 /* ChatPresenter.swift */,
+				2335B58829F004AF004E0C96 /* ChatRouter.swift */,
+				2335B58929F004AF004E0C96 /* ChatViewController.swift */,
+				2335B58A29F004AF004E0C96 /* ChatInteractor.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +183,6 @@
 			files = (
 				23FADC2D29F000ED000FC509 /* LaunchScreen.storyboard in Resources */,
 				23FADC2A29F000ED000FC509 /* Assets.xcassets in Resources */,
-				23FADC2829F000EB000FC509 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +193,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23FADC2529F000EB000FC509 /* ViewController.swift in Sources */,
+				2335B58B29F004AF004E0C96 /* ChatModuleBuilder.swift in Sources */,
 				23FADC2129F000EB000FC509 /* AppDelegate.swift in Sources */,
+				2335B59929F012DC004E0C96 /* PollCreationRouter.swift in Sources */,
+				2335B58C29F004AF004E0C96 /* ChatPresenter.swift in Sources */,
+				2335B59A29F012DC004E0C96 /* PollCreationViewController.swift in Sources */,
+				2335B59729F012DC004E0C96 /* PollCreationModuleBuilder.swift in Sources */,
+				2335B59B29F012DC004E0C96 /* PollCreationInteractor.swift in Sources */,
 				23FADC2329F000EB000FC509 /* SceneDelegate.swift in Sources */,
+				2335B58E29F004AF004E0C96 /* ChatViewController.swift in Sources */,
+				2335B58D29F004AF004E0C96 /* ChatRouter.swift in Sources */,
+				2335B59829F012DC004E0C96 /* PollCreationPresenter.swift in Sources */,
+				2335B58F29F004AF004E0C96 /* ChatInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		23FADC2629F000EB000FC509 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				23FADC2729F000EB000FC509 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		23FADC2B29F000ED000FC509 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -289,12 +345,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S256F93A4R;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Lowkey-Demo/Info.plist";
+				INFOPLIST_FILE = "Lowkey-Demo/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -317,12 +374,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S256F93A4R;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Lowkey-Demo/Info.plist";
+				INFOPLIST_FILE = "Lowkey-Demo/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

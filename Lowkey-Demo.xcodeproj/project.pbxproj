@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		231508B129F02C0300A749AB /* ChatUserpicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508B029F02C0300A749AB /* ChatUserpicView.swift */; };
+		231508B529F04EFE00A749AB /* TextMessageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508B429F04EFE00A749AB /* TextMessageInfo.swift */; };
+		231508B729F04F6100A749AB /* PollInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508B629F04F6100A749AB /* PollInfo.swift */; };
+		231508B929F0503500A749AB /* MessageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508B829F0503500A749AB /* MessageInfo.swift */; };
+		231508BC29F050BA00A749AB /* TextMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508BB29F050BA00A749AB /* TextMessageCell.swift */; };
+		231508BE29F050C100A749AB /* PollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508BD29F050C100A749AB /* PollCell.swift */; };
 		2335B58B29F004AF004E0C96 /* ChatModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B58629F004AF004E0C96 /* ChatModuleBuilder.swift */; };
 		2335B58C29F004AF004E0C96 /* ChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B58729F004AF004E0C96 /* ChatPresenter.swift */; };
 		2335B58D29F004AF004E0C96 /* ChatRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B58829F004AF004E0C96 /* ChatRouter.swift */; };
@@ -33,6 +38,11 @@
 
 /* Begin PBXFileReference section */
 		231508B029F02C0300A749AB /* ChatUserpicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUserpicView.swift; sourceTree = "<group>"; };
+		231508B429F04EFE00A749AB /* TextMessageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMessageInfo.swift; sourceTree = "<group>"; };
+		231508B629F04F6100A749AB /* PollInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollInfo.swift; sourceTree = "<group>"; };
+		231508B829F0503500A749AB /* MessageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInfo.swift; sourceTree = "<group>"; };
+		231508BB29F050BA00A749AB /* TextMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMessageCell.swift; sourceTree = "<group>"; };
+		231508BD29F050C100A749AB /* PollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollCell.swift; sourceTree = "<group>"; };
 		2335B58629F004AF004E0C96 /* ChatModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModuleBuilder.swift; sourceTree = "<group>"; };
 		2335B58729F004AF004E0C96 /* ChatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPresenter.swift; sourceTree = "<group>"; };
 		2335B58829F004AF004E0C96 /* ChatRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRouter.swift; sourceTree = "<group>"; };
@@ -69,6 +79,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		231508B229F04EE100A749AB /* API */ = {
+			isa = PBXGroup;
+			children = (
+				231508B329F04EE900A749AB /* Models */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		231508B329F04EE900A749AB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				231508B429F04EFE00A749AB /* TextMessageInfo.swift */,
+				231508B629F04F6100A749AB /* PollInfo.swift */,
+				231508B829F0503500A749AB /* MessageInfo.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		231508BA29F050A900A749AB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				231508BB29F050BA00A749AB /* TextMessageCell.swift */,
+				231508BD29F050C100A749AB /* PollCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		2335B59129F012C4004E0C96 /* PollCreation */ = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +121,7 @@
 		2335B59C29F013E2004E0C96 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				231508BA29F050A900A749AB /* Cells */,
 				2335B59D29F01409004E0C96 /* ChatNavigationTitleView.swift */,
 				231508B029F02C0300A749AB /* ChatUserpicView.swift */,
 			);
@@ -137,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				23FADC3429F000F4000FC509 /* Application */,
+				231508B229F04EE100A749AB /* API */,
 				2335B5A929F0163F004E0C96 /* Core */,
 				23FADC3629F0016B000FC509 /* Chat */,
 				2335B59129F012C4004E0C96 /* PollCreation */,
@@ -258,18 +297,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				2335B58B29F004AF004E0C96 /* ChatModuleBuilder.swift in Sources */,
+				231508B929F0503500A749AB /* MessageInfo.swift in Sources */,
 				23FADC2129F000EB000FC509 /* AppDelegate.swift in Sources */,
 				2335B59929F012DC004E0C96 /* PollCreationRouter.swift in Sources */,
 				2335B58C29F004AF004E0C96 /* ChatPresenter.swift in Sources */,
 				2335B59A29F012DC004E0C96 /* PollCreationViewController.swift in Sources */,
 				2335B59729F012DC004E0C96 /* PollCreationModuleBuilder.swift in Sources */,
+				231508B529F04EFE00A749AB /* TextMessageInfo.swift in Sources */,
 				231508B129F02C0300A749AB /* ChatUserpicView.swift in Sources */,
 				2335B59B29F012DC004E0C96 /* PollCreationInteractor.swift in Sources */,
 				23FADC2329F000EB000FC509 /* SceneDelegate.swift in Sources */,
 				2335B5B029F01A3D004E0C96 /* UIColor+extra.swift in Sources */,
 				2335B58E29F004AF004E0C96 /* ChatViewController.swift in Sources */,
 				2335B58D29F004AF004E0C96 /* ChatRouter.swift in Sources */,
+				231508BC29F050BA00A749AB /* TextMessageCell.swift in Sources */,
 				2335B59829F012DC004E0C96 /* PollCreationPresenter.swift in Sources */,
+				231508B729F04F6100A749AB /* PollInfo.swift in Sources */,
+				231508BE29F050C100A749AB /* PollCell.swift in Sources */,
 				2335B59E29F01409004E0C96 /* ChatNavigationTitleView.swift in Sources */,
 				2335B58F29F004AF004E0C96 /* ChatInteractor.swift in Sources */,
 				2335B5AE29F016EE004E0C96 /* UILabel+style.swift in Sources */,

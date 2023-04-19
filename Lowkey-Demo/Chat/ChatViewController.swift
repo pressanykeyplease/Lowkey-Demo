@@ -24,12 +24,17 @@ class ChatViewController: UIViewController {
     private enum UIConstants {
         
     }
+
+    // MARK: - Private properties
+    private let tableView = UITableView()
+    private var messages: [MessageInfo] = []
 }
 
 // MARK: - Private functions
 private extension ChatViewController {
     func initialize() {
         configureNavigationBar()
+        configureTableView()
     }
 
     func configureNavigationBar() {
@@ -41,6 +46,12 @@ private extension ChatViewController {
         appearance.backgroundColor = .Navigation.backgroundColor
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
+    }
+
+    func configureTableView() {
+        tableView.dataSource = self
+        tableView.register(TextMessageCell.self, forCellReuseIdentifier: String(describing: TextMessageCell.self))
+        tableView.register(PollCell.self, forCellReuseIdentifier: String(describing: PollCell.self))
     }
 
     func makeLeftBarButtonItem() -> UIBarButtonItem {
@@ -66,4 +77,25 @@ private extension ChatViewController {
 
 // MARK: - ChatViewProtocol
 extension ChatViewController: ChatViewProtocol {
+}
+
+// MARK: - UITableViewDataSource
+extension ChatViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        messages.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let message = messages[indexPath.row]
+        switch message {
+        case .text(let info):
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TextMessageCell.self), for: indexPath) as! TextMessageCell
+            cell.configure(with: info)
+            return cell
+        case .poll(let info):
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PollCell.self), for: indexPath) as! PollCell
+            cell.configure(with: info)
+            return cell
+        }
+    }
 }

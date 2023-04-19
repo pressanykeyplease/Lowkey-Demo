@@ -23,6 +23,7 @@
 		2335B5A729F015F3004E0C96 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2335B5A429F015F3004E0C96 /* Poppins-Regular.ttf */; };
 		2335B5A829F015F3004E0C96 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2335B5A529F015F3004E0C96 /* Poppins-SemiBold.ttf */; };
 		2335B5AE29F016EE004E0C96 /* UILabel+style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B5AD29F016EE004E0C96 /* UILabel+style.swift */; };
+		2335B5B029F01A3D004E0C96 /* UIColor+extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B5AF29F01A3D004E0C96 /* UIColor+extra.swift */; };
 		23FADC2129F000EB000FC509 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FADC2029F000EB000FC509 /* AppDelegate.swift */; };
 		23FADC2329F000EB000FC509 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FADC2229F000EB000FC509 /* SceneDelegate.swift */; };
 		23FADC2A29F000ED000FC509 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23FADC2929F000ED000FC509 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		2335B5A429F015F3004E0C96 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		2335B5A529F015F3004E0C96 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		2335B5AD29F016EE004E0C96 /* UILabel+style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+style.swift"; sourceTree = "<group>"; };
+		2335B5AF29F01A3D004E0C96 /* UIColor+extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extra.swift"; sourceTree = "<group>"; };
 		23FADC1D29F000EB000FC509 /* Lowkey-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lowkey-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23FADC2029F000EB000FC509 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23FADC2229F000EB000FC509 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		2335B5AA29F01649004E0C96 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2335B5AF29F01A3D004E0C96 /* UIColor+extra.swift */,
 				2335B5AD29F016EE004E0C96 /* UILabel+style.swift */,
 			);
 			path = Extensions;
@@ -259,6 +262,7 @@
 				2335B59729F012DC004E0C96 /* PollCreationModuleBuilder.swift in Sources */,
 				2335B59B29F012DC004E0C96 /* PollCreationInteractor.swift in Sources */,
 				23FADC2329F000EB000FC509 /* SceneDelegate.swift in Sources */,
+				2335B5B029F01A3D004E0C96 /* UIColor+extra.swift in Sources */,
 				2335B58E29F004AF004E0C96 /* ChatViewController.swift in Sources */,
 				2335B58D29F004AF004E0C96 /* ChatRouter.swift in Sources */,
 				2335B59829F012DC004E0C96 /* PollCreationPresenter.swift in Sources */,

@@ -24,6 +24,7 @@ class ChatViewController: UIViewController {
 // MARK: - Private functions
 private extension ChatViewController {
     func initialize() {
+        navigationItem.titleView = ChatNavigationTitleView(title: "Lowkey Squad", subtitle: "1 member • 1 online")
     }
 }
 

@@ -22,7 +22,7 @@ final class ChatNavigationTitleView: UIView {
     }
 
     // MARK: - Private constants
-    private enum UIConstatns {
+    private enum UIConstants {
         static let titleFontSize: CGFloat = 16
         static let subtitleFontSize: CGFloat = 12
         static let width: CGFloat = 160
@@ -32,14 +32,14 @@ final class ChatNavigationTitleView: UIView {
     // MARK: - Private properties
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.apply(style: .semibold, size: UIConstatns.titleFontSize)
+        label.apply(style: .semibold, size: UIConstants.titleFontSize)
         label.textColor = .Navigation.tintColor
         return label
     }()
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.apply(style: .regular, size: UIConstatns.subtitleFontSize)
+        label.apply(style: .regular, size: UIConstants.subtitleFontSize)
         label.textColor = .Navigation.subtitleColor
         return label
     }()
@@ -58,8 +58,8 @@ private extension ChatNavigationTitleView {
         addSubview(stackView)
         stackView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
-            make.width.equalTo(UIConstatns.width)
-            make.height.equalTo(UIConstatns.height)
+            make.width.equalTo(UIConstants.width)
+            make.height.equalTo(UIConstants.height)
         }
     }
 }

@@ -28,6 +28,11 @@ final class TextMessageCell: UITableViewCell {
     private enum UIConstants {
         static let userpicSize: CGFloat = 40
         static let userpicCornerRadius: CGFloat = 12
+        static let userpicTopInset: CGFloat = 6
+        static let userpicLeadingInset: CGFloat = 15
+        static let userpicToTextOffset: CGFloat = 15
+        static let nameFontSize: CGFloat = 12
+        static let messageFontSize: CGFloat = 15
     }
         
     // MARK: - Private properties
@@ -37,6 +42,20 @@ final class TextMessageCell: UITableViewCell {
         view.layer.cornerCurve = .continuous
         view.layer.masksToBounds = true
         return view
+    }()
+
+    private let nameLabel: UILabel = {
+        let label = UILabel()
+        label.apply(style: .semibold, size: UIConstants.nameFontSize)
+        label.textColor = .Chat.nameLabelColor
+        return label
+    }()
+
+    private let messageLabel: UILabel = {
+        let label = UILabel()
+        label.apply(style: .regular, size: UIConstants.messageFontSize)
+        label.textColor = .Chat.messageLabelColor
+        return label
     }()
 }
 

@@ -27,7 +27,12 @@ class ChatViewController: UIViewController {
 
     // MARK: - Private properties
     private let tableView = UITableView()
-    private var messages: [MessageInfo] = []
+    private var messages: [MessageInfo] = [
+        .text(TextMessageInfo(userpic: UIImage(named: "elon-musk"), name: "Elon Musk", message: "Nice! 12 ppl in total. Let’s gather at the metro station!🚆🚆🚆")),
+        .text(TextMessageInfo(userpic: UIImage(named: "elon-musk"), name: "Elon Musk", message: "Nice! 12 ppl in total. Let’s gather at the metro station!🚆🚆🚆")),
+        .text(TextMessageInfo(userpic: UIImage(named: "elon-musk"), name: "Elon Musk", message: "Nice! 12 ppl in total. Let’s gather at the metro station!🚆🚆🚆")),
+        .text(TextMessageInfo(userpic: UIImage(named: "elon-musk"), name: "Elon Musk", message: "Nice! 12 ppl in total. Let’s gather at the metro station!🚆🚆🚆"))
+    ]
 }
 
 // MARK: - Private functions
@@ -52,6 +57,11 @@ private extension ChatViewController {
         tableView.dataSource = self
         tableView.register(TextMessageCell.self, forCellReuseIdentifier: String(describing: TextMessageCell.self))
         tableView.register(PollCell.self, forCellReuseIdentifier: String(describing: PollCell.self))
+        tableView.backgroundColor = .Chat.backgroundColor
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
 
     func makeLeftBarButtonItem() -> UIBarButtonItem {

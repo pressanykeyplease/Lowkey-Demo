@@ -43,6 +43,8 @@ final class PollCell: UITableViewCell {
 // MARK: - Private methods
 private extension PollCell {
     func initialize() {
+        selectionStyle = .none
+        backgroundColor = .clear
         
     }
 }

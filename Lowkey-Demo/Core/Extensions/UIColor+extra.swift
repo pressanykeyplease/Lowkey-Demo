@@ -17,12 +17,14 @@ extension UIColor {
     struct Chat {
         static var nameLabelColor: UIColor { HEX.h7E7A9A }
         static var messageLabelColor: UIColor { HEX.hFEFEFE }
+        static var backgroundColor: UIColor { HEX.h14131B }
     }
 
     fileprivate struct HEX {
         static let hFEFEFE = UIColor(hex: 0xFEFEFE)
         static let h7E7A9A = UIColor(hex: 0x7E7A9A)
         static let h1C1A2A = UIColor(hex: 0x1C1A2A)
+        static let h14131B = UIColor(hex: 0x14131B)
     }
 }
 

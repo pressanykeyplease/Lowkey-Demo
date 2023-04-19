@@ -45,7 +45,7 @@ private extension ChatViewController {
 
     func makeLeftBarButtonItem() -> UIBarButtonItem {
         let image = UIImage(systemName: "xmark")
-        let leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: nil)
+        let leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(showInProgressAlert))
         leftBarButtonItem.tintColor = .Navigation.tintColor
         return leftBarButtonItem
     }
@@ -55,6 +55,12 @@ private extension ChatViewController {
         let userpicView = ChatUserpicView(imgae: image)
         let rightBarButtonItem = UIBarButtonItem(customView: userpicView)
         return rightBarButtonItem
+    }
+
+    @objc func showInProgressAlert() {
+        let alert = UIAlertController(title: "In progress", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

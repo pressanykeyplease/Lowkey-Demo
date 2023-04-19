@@ -28,15 +28,57 @@ final class PollCell: UITableViewCell {
     private enum UIConstants {
         static let userpicSize: CGFloat = 36
         static let userpicCornerRadius: CGFloat = 12
+        static let pollTypeFontSize: CGFloat = 10
+        static let nameFontSize: CGFloat = 12
+        static let messageFontSize: CGFloat = 15
+        static let votesCountFontSize: CGFloat = 16
+        static let votesFontSize: CGFloat = 10
+        static let optionFontSize: CGFloat = 12
     }
         
     // MARK: - Private properties
-    private let userImageView: UIImageView = {
+    private let userpicView: UIImageView = {
         let view = UIImageView()
         view.layer.cornerRadius = UIConstants.userpicCornerRadius
         view.layer.cornerCurve = .continuous
         view.layer.masksToBounds = true
         return view
+    }()
+
+    private let pollTypeLabel: UILabel = {
+        let label = UILabel()
+        label.apply(style: .regular, size: UIConstants.pollTypeFontSize)
+        label.textColor = .Chat.nameLabelColor
+        return label
+    }()
+
+    private let nameLabel: UILabel = {
+        let label = UILabel()
+        label.apply(style: .semibold, size: UIConstants.nameFontSize)
+        label.textColor = .Chat.nameLabelColor
+        return label
+    }()
+
+    private let messageLabel: UILabel = {
+        let label = UILabel()
+        label.apply(style: .medium, size: UIConstants.messageFontSize)
+        label.textColor = .Chat.messageLabelColor
+        label.numberOfLines = .zero
+        return label
+    }()
+
+    private let votesCountLabel: UILabel = {
+        let label = UILabel()
+        label.apply(style: .semibold, size: UIConstants.votesCountFontSize)
+        label.textColor = .Chat.nameLabelColor
+        return label
+    }()
+
+    private let votesLabel: UILabel = {
+        let label = UILabel()
+        label.apply(style: .semibold, size: UIConstants.votesFontSize)
+        label.textColor = .Chat.nameLabelColor
+        return label
     }()
 }
 

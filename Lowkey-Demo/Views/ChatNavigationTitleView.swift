@@ -33,7 +33,7 @@ final class ChatNavigationTitleView: UIView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.apply(style: .semibold, size: UIConstatns.titleFontSize)
-        label.textColor = .Navigation.titleColor
+        label.textColor = .Navigation.tintColor
         return label
     }()
 

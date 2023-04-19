@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		231508B129F02C0300A749AB /* ChatUserpicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508B029F02C0300A749AB /* ChatUserpicView.swift */; };
 		2335B58B29F004AF004E0C96 /* ChatModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B58629F004AF004E0C96 /* ChatModuleBuilder.swift */; };
 		2335B58C29F004AF004E0C96 /* ChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B58729F004AF004E0C96 /* ChatPresenter.swift */; };
 		2335B58D29F004AF004E0C96 /* ChatRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B58829F004AF004E0C96 /* ChatRouter.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		231508B029F02C0300A749AB /* ChatUserpicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUserpicView.swift; sourceTree = "<group>"; };
 		2335B58629F004AF004E0C96 /* ChatModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModuleBuilder.swift; sourceTree = "<group>"; };
 		2335B58729F004AF004E0C96 /* ChatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPresenter.swift; sourceTree = "<group>"; };
 		2335B58829F004AF004E0C96 /* ChatRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRouter.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				2335B59D29F01409004E0C96 /* ChatNavigationTitleView.swift */,
+				231508B029F02C0300A749AB /* ChatUserpicView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				2335B58C29F004AF004E0C96 /* ChatPresenter.swift in Sources */,
 				2335B59A29F012DC004E0C96 /* PollCreationViewController.swift in Sources */,
 				2335B59729F012DC004E0C96 /* PollCreationModuleBuilder.swift in Sources */,
+				231508B129F02C0300A749AB /* ChatUserpicView.swift in Sources */,
 				2335B59B29F012DC004E0C96 /* PollCreationInteractor.swift in Sources */,
 				23FADC2329F000EB000FC509 /* SceneDelegate.swift in Sources */,
 				2335B5B029F01A3D004E0C96 /* UIColor+extra.swift in Sources */,

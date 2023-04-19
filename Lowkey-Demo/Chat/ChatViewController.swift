@@ -19,12 +19,27 @@ class ChatViewController: UIViewController {
         super.viewDidLoad()
         initialize()
     }
+
+    // MARK: - Private constants
+    private enum UIConstants {
+        
+    }
 }
 
 // MARK: - Private functions
 private extension ChatViewController {
     func initialize() {
+        configureNavigationBar()
+    }
+
+    func configureNavigationBar() {
         navigationItem.titleView = ChatNavigationTitleView(title: "Lowkey Squad", subtitle: "1 member • 1 online")
+        let leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: nil)
+        leftBarButtonItem.tintColor = .Navigation.tintColor
+        navigationItem.leftBarButtonItem = leftBarButtonItem
+        let userpicView = ChatUserpicView(imgae: UIImage(named: "elon-musk"))
+        let rightBarButtonItem = UIBarButtonItem(customView: userpicView)
+        navigationItem.rightBarButtonItem = rightBarButtonItem
     }
 }
 

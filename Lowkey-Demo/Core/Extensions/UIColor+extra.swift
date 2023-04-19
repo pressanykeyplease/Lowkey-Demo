@@ -9,7 +9,7 @@ import UIKit
 
 extension UIColor {
     struct Navigation {
-        static var titleColor: UIColor { HEX.hFEFEFE }
+        static var tintColor: UIColor { HEX.hFEFEFE }
         static var subtitleColor: UIColor { HEX.h7E7A9A }
     }
 

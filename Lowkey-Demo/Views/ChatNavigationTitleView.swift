@@ -26,7 +26,6 @@ final class ChatNavigationTitleView: UIView {
         static let titleFontSize: CGFloat = 16
         static let subtitleFontSize: CGFloat = 12
         static let width: CGFloat = 160
-        static let height: CGFloat = 50
     }
 
     // MARK: - Private properties
@@ -59,7 +58,6 @@ private extension ChatNavigationTitleView {
         stackView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
             make.width.equalTo(UIConstants.width)
-            make.height.equalTo(UIConstants.height)
         }
     }
 }

@@ -22,7 +22,7 @@ class ChatViewController: UIViewController {
 
     // MARK: - Private constants
     private enum UIConstants {
-        
+        static let tableViewBottomInset: CGFloat = 45
     }
 
     // MARK: - Private properties
@@ -65,7 +65,8 @@ private extension ChatViewController {
         tableView.backgroundColor = .Chat.backgroundColor
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.leading.trailing.top.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(UIConstants.tableViewBottomInset)
         }
     }
 

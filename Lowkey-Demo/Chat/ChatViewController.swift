@@ -128,5 +128,11 @@ extension ChatViewController: UITableViewDataSource {
 
 // MARK: - ChatToolbarDelegate
 extension ChatViewController: ChatToolbarDelegate {
-    
+    func didTapOptionsButton() {
+        showInProgressAlert()
+    }
+
+    func didTapSendButton() {
+        showInProgressAlert()
+    }
 }

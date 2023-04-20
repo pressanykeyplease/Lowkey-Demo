@@ -9,7 +9,8 @@ import SnapKit
 import UIKit
 
 protocol ChatToolbarDelegate: AnyObject {
-    
+    func didTapOptionsButton()
+    func didTapSendButton()
 }
 
 final class ChatToolbar: UIView {
@@ -42,6 +43,7 @@ final class ChatToolbar: UIView {
     private let optionsButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(.Chat.optionsButtonIcon, for: .normal)
+        button.addTarget(self, action: #selector(didTapOptionsButton), for: .touchUpInside)
         return button
     }()
 
@@ -62,6 +64,7 @@ final class ChatToolbar: UIView {
     private let sendButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(.Chat.sendButtonIcon, for: .normal)
+        button.addTarget(self, action: #selector(didTapSendButton), for: .touchUpInside)
         return button
     }()
 }
@@ -90,5 +93,13 @@ private extension ChatToolbar {
             make.leading.trailing.equalToSuperview().inset(UIConstatns.stackInsetX)
             make.top.bottom.equalToSuperview().inset(UIConstatns.stackInsetY)
         }
+    }
+
+    @objc func didTapOptionsButton() {
+        delegate?.didTapOptionsButton()
+    }
+
+    @objc func didTapSendButton() {
+        delegate?.didTapSendButton()
     }
 }

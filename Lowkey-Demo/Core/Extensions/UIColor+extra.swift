@@ -15,6 +15,7 @@ extension UIColor {
         static var inactiveButtonColor: UIColor { HEX.h7E7A9A }
         static var activeButtonColor: UIColor { HEX.h1C6EF2 }
         static var presentedViewNavigationBarColor: UIColor { HEX.h0E121F }
+        static var sectionHeaderTextColor: UIColor { HEX.h7E7A9A }
     }
 
     struct Chat {
@@ -28,6 +29,7 @@ extension UIColor {
         static var textFieldBackgroundColor: UIColor { HEX.h2E2C3C }
         static var placeholderColor: UIColor { HEX.h7E7A9A }
         static var pollOptionColor: UIColor { HEX.h1C6EF2 }
+        static var textFieldColor: UIColor { HEX.h1C1A2A }
     }
 
     fileprivate struct HEX {

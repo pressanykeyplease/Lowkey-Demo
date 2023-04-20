@@ -19,6 +19,13 @@
 		231508CB29F0F38B00A749AB /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508CA29F0F38B00A749AB /* FontStyle.swift */; };
 		231508CD29F0F61400A749AB /* UITextField+padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508CC29F0F61300A749AB /* UITextField+padding.swift */; };
 		231508D129F12B8B00A749AB /* BarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508D029F12B8B00A749AB /* BarButtonItem.swift */; };
+		231508D329F1325B00A749AB /* SectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508D229F1325B00A749AB /* SectionHeaderCell.swift */; };
+		231508D529F1360C00A749AB /* PollRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508D429F1360C00A749AB /* PollRowType.swift */; };
+		231508D729F136D000A749AB /* SectionHeaderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508D629F136D000A749AB /* SectionHeaderInfo.swift */; };
+		231508D929F137B200A749AB /* TextFieldCellInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508D829F137B200A749AB /* TextFieldCellInfo.swift */; };
+		231508DB29F13B7200A749AB /* TextInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508DA29F13B7200A749AB /* TextInputCell.swift */; };
+		231508DD29F13D9000A749AB /* PollOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508DC29F13D9000A749AB /* PollOptionCell.swift */; };
+		231508DF29F13DD900A749AB /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508DE29F13DD900A749AB /* ButtonCell.swift */; };
 		2335B58B29F004AF004E0C96 /* ChatModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B58629F004AF004E0C96 /* ChatModuleBuilder.swift */; };
 		2335B58C29F004AF004E0C96 /* ChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B58729F004AF004E0C96 /* ChatPresenter.swift */; };
 		2335B58D29F004AF004E0C96 /* ChatRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B58829F004AF004E0C96 /* ChatRouter.swift */; };
@@ -55,6 +62,13 @@
 		231508CA29F0F38B00A749AB /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
 		231508CC29F0F61300A749AB /* UITextField+padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+padding.swift"; sourceTree = "<group>"; };
 		231508D029F12B8B00A749AB /* BarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonItem.swift; sourceTree = "<group>"; };
+		231508D229F1325B00A749AB /* SectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderCell.swift; sourceTree = "<group>"; };
+		231508D429F1360C00A749AB /* PollRowType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollRowType.swift; sourceTree = "<group>"; };
+		231508D629F136D000A749AB /* SectionHeaderInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderInfo.swift; sourceTree = "<group>"; };
+		231508D829F137B200A749AB /* TextFieldCellInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCellInfo.swift; sourceTree = "<group>"; };
+		231508DA29F13B7200A749AB /* TextInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputCell.swift; sourceTree = "<group>"; };
+		231508DC29F13D9000A749AB /* PollOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollOptionCell.swift; sourceTree = "<group>"; };
+		231508DE29F13DD900A749AB /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		2335B58629F004AF004E0C96 /* ChatModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModuleBuilder.swift; sourceTree = "<group>"; };
 		2335B58729F004AF004E0C96 /* ChatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPresenter.swift; sourceTree = "<group>"; };
 		2335B58829F004AF004E0C96 /* ChatRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRouter.swift; sourceTree = "<group>"; };
@@ -112,8 +126,12 @@
 		231508BA29F050A900A749AB /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				231508BB29F050BA00A749AB /* TextMessageCell.swift */,
+				231508DE29F13DD900A749AB /* ButtonCell.swift */,
 				231508BD29F050C100A749AB /* PollCell.swift */,
+				231508DC29F13D9000A749AB /* PollOptionCell.swift */,
+				231508D229F1325B00A749AB /* SectionHeaderCell.swift */,
+				231508DA29F13B7200A749AB /* TextInputCell.swift */,
+				231508BB29F050BA00A749AB /* TextMessageCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -122,6 +140,9 @@
 			isa = PBXGroup;
 			children = (
 				231508CA29F0F38B00A749AB /* FontStyle.swift */,
+				231508D429F1360C00A749AB /* PollRowType.swift */,
+				231508D829F137B200A749AB /* TextFieldCellInfo.swift */,
+				231508D629F136D000A749AB /* SectionHeaderInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -322,8 +343,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				231508D929F137B200A749AB /* TextFieldCellInfo.swift in Sources */,
 				231508D129F12B8B00A749AB /* BarButtonItem.swift in Sources */,
 				2335B58B29F004AF004E0C96 /* ChatModuleBuilder.swift in Sources */,
+				231508DB29F13B7200A749AB /* TextInputCell.swift in Sources */,
 				231508B929F0503500A749AB /* MessageInfo.swift in Sources */,
 				231508C029F0D78E00A749AB /* GradientView.swift in Sources */,
 				23FADC2129F000EB000FC509 /* AppDelegate.swift in Sources */,
@@ -333,17 +356,22 @@
 				2335B59729F012DC004E0C96 /* PollCreationModuleBuilder.swift in Sources */,
 				231508CD29F0F61400A749AB /* UITextField+padding.swift in Sources */,
 				231508B529F04EFE00A749AB /* TextMessageInfo.swift in Sources */,
+				231508DF29F13DD900A749AB /* ButtonCell.swift in Sources */,
 				231508B129F02C0300A749AB /* ChatUserpicView.swift in Sources */,
+				231508DD29F13D9000A749AB /* PollOptionCell.swift in Sources */,
 				2335B59B29F012DC004E0C96 /* PollCreationInteractor.swift in Sources */,
 				23FADC2329F000EB000FC509 /* SceneDelegate.swift in Sources */,
+				231508D529F1360C00A749AB /* PollRowType.swift in Sources */,
 				231508C229F0E14000A749AB /* ChatToolbar.swift in Sources */,
 				2335B5B029F01A3D004E0C96 /* UIColor+extra.swift in Sources */,
+				231508D329F1325B00A749AB /* SectionHeaderCell.swift in Sources */,
 				2335B58E29F004AF004E0C96 /* ChatViewController.swift in Sources */,
 				2335B58D29F004AF004E0C96 /* ChatRouter.swift in Sources */,
 				231508BC29F050BA00A749AB /* TextMessageCell.swift in Sources */,
 				2335B59829F012DC004E0C96 /* PollCreationPresenter.swift in Sources */,
 				231508CB29F0F38B00A749AB /* FontStyle.swift in Sources */,
 				231508B729F04F6100A749AB /* PollInfo.swift in Sources */,
+				231508D729F136D000A749AB /* SectionHeaderInfo.swift in Sources */,
 				231508BE29F050C100A749AB /* PollCell.swift in Sources */,
 				2335B59E29F01409004E0C96 /* ChatNavigationTitleView.swift in Sources */,
 				2335B58F29F004AF004E0C96 /* ChatInteractor.swift in Sources */,

@@ -19,16 +19,48 @@ class PollCreationViewController: UIViewController {
         super.viewDidLoad()
         initialize()
     }
+
+    // MARK: - Private properties
+    private let tableView = UITableView()
+    private var rows: [PollRowType] = [
+        .header(.init(title: "Question", secondaryTitle: "0/140")),
+        .textField(.init(placeholder: "Ask a question", text: nil)),
+        .header(.init(title: "Options", secondaryTitle: "0/8")),
+        .option(.init(placeholder: "Place some text here", text: nil)),
+        .option(.init(placeholder: "Place some text here", text: nil)),
+        .option(.init(placeholder: "Place some text here", text: nil)),
+        .button("Add an option")
+    ]
 }
 
 // MARK: - Private functions
 private extension PollCreationViewController {
     func initialize() {
+        configureNavigationBar()
+        configureTableView()
+    }
+
+    func configureNavigationBar() {
         view.backgroundColor = .Chat.backgroundColor
         navigationItem.titleView = ChatNavigationTitleView(title: "New Poll", subtitle: nil)
         navigationItem.leftBarButtonItem = makeLeftBarButtonItem()
         navigationItem.rightBarButtonItem = makeRightBarButtonItem()
         navigationController?.navigationBar.backgroundColor = .Navigation.presentedViewNavigationBarColor
+    }
+
+    func configureTableView() {
+        tableView.keyboardDismissMode = .interactive
+        tableView.separatorStyle = .none
+        tableView.dataSource = self
+        tableView.register(SectionHeaderCell.self, forCellReuseIdentifier: String(describing: SectionHeaderCell.self))
+        tableView.register(TextInputCell.self, forCellReuseIdentifier: String(describing: TextInputCell.self))
+        tableView.register(PollOptionCell.self, forCellReuseIdentifier: String(describing: PollOptionCell.self))
+        tableView.register(ButtonCell.self, forCellReuseIdentifier: String(describing: ButtonCell.self))
+        tableView.backgroundColor = .Chat.backgroundColor
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.leading.trailing.top.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
     }
 
     func makeLeftBarButtonItem() -> UIBarButtonItem {
@@ -53,4 +85,33 @@ private extension PollCreationViewController {
 
 // MARK: - PollCreationViewProtocol
 extension PollCreationViewController: PollCreationViewProtocol {
+}
+
+// MARK: - UITableViewDataSource
+extension PollCreationViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        rows.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let row = rows[indexPath.row]
+        switch row {
+        case .header(let info):
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SectionHeaderCell.self), for: indexPath) as! SectionHeaderCell
+            cell.configure(with: info)
+            return cell
+        case .textField(let info):
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TextInputCell.self), for: indexPath) as! TextInputCell
+            cell.configure(with: info)
+            return cell
+        case .option(let info):
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PollOptionCell.self), for: indexPath) as! PollOptionCell
+            cell.configure(with: info)
+            return cell
+        case .button(let title):
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ButtonCell.self), for: indexPath) as! ButtonCell
+            cell.configure(with: title)
+            return cell
+        }
+    }
 }

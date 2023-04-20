@@ -31,11 +31,11 @@ final class ChatToolbar: UIView {
     override func didMoveToWindow() {
         super.didMoveToWindow()
         guard let window = self.window else { return }
-        bottomAnchor.constraint(lessThanOrEqualToSystemSpacingBelow: window.safeAreaLayoutGuide.bottomAnchor, multiplier: UIConstatns.bottomConstraintMultiplier).isActive = true
+        bottomAnchor.constraint(lessThanOrEqualToSystemSpacingBelow: window.safeAreaLayoutGuide.bottomAnchor, multiplier: UIConstants.bottomConstraintMultiplier).isActive = true
     }
 
     // MARK: - Private constants
-    private enum UIConstatns {
+    private enum UIConstants {
         static let stackSpacing: CGFloat = 10
         static let buttonSize: CGFloat = 25
         static let textFieldHeight: CGFloat = 35
@@ -58,15 +58,15 @@ final class ChatToolbar: UIView {
     private let textField: UITextField = {
         let field = UITextField()
         field.backgroundColor = .Chat.textFieldBackgroundColor
-        field.layer.cornerRadius = UIConstatns.textFieldCornerRadius
-        field.font = .applying(style: .regular, size: UIConstatns.fontSize)
+        field.layer.cornerRadius = UIConstants.textFieldCornerRadius
+        field.font = .applying(style: .regular, size: UIConstants.fontSize)
         field.attributedPlaceholder = NSAttributedString(
             string: "Message",
             attributes: [.foregroundColor: UIColor.Chat.placeholderColor]
         )
         field.textColor = .Chat.textColor
-        field.setLeftPaddingPoints(UIConstatns.textFieldPadding)
-        field.setRightPaddingPoints(UIConstatns.textFieldPadding)
+        field.setLeftPaddingPoints(UIConstants.textFieldPadding)
+        field.setRightPaddingPoints(UIConstants.textFieldPadding)
         return field
     }()
 
@@ -83,25 +83,25 @@ private extension ChatToolbar {
     func initialize() {
         backgroundColor = .Chat.backgroundColor
         optionsButton.snp.makeConstraints { make in
-            make.size.equalTo(UIConstatns.buttonSize)
+            make.size.equalTo(UIConstants.buttonSize)
         }
         sendButton.snp.makeConstraints { make in
-            make.size.equalTo(UIConstatns.buttonSize)
+            make.size.equalTo(UIConstants.buttonSize)
         }
         textField.snp.makeConstraints { make in
-            make.height.equalTo(UIConstatns.textFieldHeight)
+            make.height.equalTo(UIConstants.textFieldHeight)
         }
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .center
-        stackView.spacing = UIConstatns.stackSpacing
+        stackView.spacing = UIConstants.stackSpacing
         stackView.addArrangedSubview(optionsButton)
         stackView.addArrangedSubview(textField)
         stackView.addArrangedSubview(sendButton)
         addSubview(stackView)
         stackView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(UIConstatns.stackInsetX)
-            make.top.bottom.equalToSuperview().inset(UIConstatns.stackInsetY)
+            make.leading.trailing.equalToSuperview().inset(UIConstants.stackInsetX)
+            make.top.bottom.equalToSuperview().inset(UIConstants.stackInsetY)
         }
     }
 

@@ -39,7 +39,8 @@ final class PollOptionCell: UITableViewCell {
         static let buttonViewAlpha: CGFloat = 0.1
         static let buttonViewCornerRadius: CGFloat = 12
         static let buttonViewWidth: CGFloat = 50
-        static let removeButtonSize: CGFloat = 14
+        static let removeButtonSize: CGFloat = 30
+        static let buttonContentInset: CGFloat = 8
     }
         
     // MARK: - Private properties
@@ -62,6 +63,10 @@ final class PollOptionCell: UITableViewCell {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "xmark"), for: .normal)
         button.tintColor = .white
+        button.contentEdgeInsets = UIEdgeInsets(top: UIConstants.buttonContentInset,
+                                                left: UIConstants.buttonContentInset,
+                                                bottom: UIConstants.buttonContentInset,
+                                                right: UIConstants.buttonContentInset)
         return button
     }()
 }

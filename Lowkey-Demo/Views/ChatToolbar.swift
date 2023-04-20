@@ -33,6 +33,9 @@ final class ChatToolbar: UIView {
         static let textFieldHeight: CGFloat = 35
         static let stackInsetX: CGFloat = 20
         static let stackInsetY: CGFloat = 5
+        static let textFieldCornerRadius: CGFloat = 10
+        static let fontSize: CGFloat = 15
+        static let textFieldPadding: CGFloat = 15
     }
 
     // MARK: - Private properties
@@ -44,6 +47,15 @@ final class ChatToolbar: UIView {
 
     private let textField: UITextField = {
         let field = UITextField()
+        field.backgroundColor = .Chat.textFieldBackgroundColor
+        field.layer.cornerRadius = UIConstatns.textFieldCornerRadius
+        field.font = .applying(style: .regular, size: UIConstatns.fontSize)
+        field.attributedPlaceholder = NSAttributedString(
+            string: "Message",
+            attributes: [.foregroundColor: UIColor.Chat.placeholderColor]
+        )
+        field.setLeftPaddingPoints(UIConstatns.textFieldPadding)
+        field.setRightPaddingPoints(UIConstatns.textFieldPadding)
         return field
     }()
 

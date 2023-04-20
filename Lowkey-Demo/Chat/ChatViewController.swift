@@ -57,6 +57,7 @@ private extension ChatViewController {
 
     func configureTableView() {
         view.backgroundColor = .Chat.backgroundColor
+        tableView.separatorStyle = .none
         tableView.dataSource = self
         tableView.register(TextMessageCell.self, forCellReuseIdentifier: String(describing: TextMessageCell.self))
         tableView.register(PollCell.self, forCellReuseIdentifier: String(describing: PollCell.self))

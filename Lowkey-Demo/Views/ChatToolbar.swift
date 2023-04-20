@@ -40,7 +40,7 @@ final class ChatToolbar: UIView {
     }
 
     // MARK: - Private properties
-    private let optionsButton: UIButton = {
+    private lazy var optionsButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(.Chat.optionsButtonIcon, for: .normal)
         button.addTarget(self, action: #selector(didTapOptionsButton), for: .touchUpInside)
@@ -61,7 +61,7 @@ final class ChatToolbar: UIView {
         return field
     }()
 
-    private let sendButton: UIButton = {
+    private lazy var sendButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(.Chat.sendButtonIcon, for: .normal)
         button.addTarget(self, action: #selector(didTapSendButton), for: .touchUpInside)

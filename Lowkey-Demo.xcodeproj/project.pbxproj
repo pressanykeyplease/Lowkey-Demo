@@ -13,6 +13,7 @@
 		231508B929F0503500A749AB /* MessageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508B829F0503500A749AB /* MessageInfo.swift */; };
 		231508BC29F050BA00A749AB /* TextMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508BB29F050BA00A749AB /* TextMessageCell.swift */; };
 		231508BE29F050C100A749AB /* PollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508BD29F050C100A749AB /* PollCell.swift */; };
+		231508C029F0D78E00A749AB /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508BF29F0D78E00A749AB /* GradientView.swift */; };
 		2335B58B29F004AF004E0C96 /* ChatModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B58629F004AF004E0C96 /* ChatModuleBuilder.swift */; };
 		2335B58C29F004AF004E0C96 /* ChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B58729F004AF004E0C96 /* ChatPresenter.swift */; };
 		2335B58D29F004AF004E0C96 /* ChatRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B58829F004AF004E0C96 /* ChatRouter.swift */; };
@@ -43,6 +44,7 @@
 		231508B829F0503500A749AB /* MessageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInfo.swift; sourceTree = "<group>"; };
 		231508BB29F050BA00A749AB /* TextMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMessageCell.swift; sourceTree = "<group>"; };
 		231508BD29F050C100A749AB /* PollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollCell.swift; sourceTree = "<group>"; };
+		231508BF29F0D78E00A749AB /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		2335B58629F004AF004E0C96 /* ChatModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModuleBuilder.swift; sourceTree = "<group>"; };
 		2335B58729F004AF004E0C96 /* ChatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPresenter.swift; sourceTree = "<group>"; };
 		2335B58829F004AF004E0C96 /* ChatRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRouter.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				231508BA29F050A900A749AB /* Cells */,
 				2335B59D29F01409004E0C96 /* ChatNavigationTitleView.swift */,
 				231508B029F02C0300A749AB /* ChatUserpicView.swift */,
+				231508BF29F0D78E00A749AB /* GradientView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			files = (
 				2335B58B29F004AF004E0C96 /* ChatModuleBuilder.swift in Sources */,
 				231508B929F0503500A749AB /* MessageInfo.swift in Sources */,
+				231508C029F0D78E00A749AB /* GradientView.swift in Sources */,
 				23FADC2129F000EB000FC509 /* AppDelegate.swift in Sources */,
 				2335B59929F012DC004E0C96 /* PollCreationRouter.swift in Sources */,
 				2335B58C29F004AF004E0C96 /* ChatPresenter.swift in Sources */,

@@ -20,6 +20,8 @@ extension UIColor {
         static var backgroundColor: UIColor { HEX.h14131B }
         static var votesViewColor: UIColor { HEX.hAC1393 }
         static var textColor: UIColor { HEX.hFEFEFE }
+        static var pollGradientStartColor: UIColor { HEX.hA83D7F }
+        static var pollGradientEndColor: UIColor { HEX.h14131B }
     }
 
     fileprivate struct HEX {
@@ -28,6 +30,8 @@ extension UIColor {
         static let h1C1A2A = UIColor(hex: 0x1C1A2A)
         static let h14131B = UIColor(hex: 0x14131B)
         static let hAC1393 = UIColor(hex: 0xAC1393)
+        static let hA83D7F = UIColor(hex: 0xA83D7F)
+//        static let h14131B = UIColor(hex: 0x14131B)
     }
 }
 

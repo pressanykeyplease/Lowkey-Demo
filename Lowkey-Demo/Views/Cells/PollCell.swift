@@ -37,8 +37,8 @@ final class PollCell: UITableViewCell {
         static let votesCountFontSize: CGFloat = 16
         static let votesFontSize: CGFloat = 10
         static let optionFontSize: CGFloat = 12
-        static let gradientViewInsetX: CGFloat = 15
-        static let gradientViewInsetY: CGFloat = 7
+        static let frameViewInsetX: CGFloat = 15
+        static let frameViewInsetY: CGFloat = 7
         static let gradientViewCornerRadius: CGFloat = 20
         static let votesViewSize: CGFloat = 50
         static let votesInfoInsetY: CGFloat = 8
@@ -99,14 +99,20 @@ private extension PollCell {
     func initialize() {
         selectionStyle = .none
         backgroundColor = .clear
-        
-        let gradientView = UIView()
+
+        let gradientView = GradientView()
         gradientView.layer.cornerRadius = UIConstants.gradientViewCornerRadius
-        gradientView.backgroundColor = .systemPink
         contentView.addSubview(gradientView)
+
+        let frameView = UIView()
+        contentView.addSubview(frameView)
+        frameView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(UIConstants.frameViewInsetX)
+            make.top.bottom.equalToSuperview().inset(UIConstants.frameViewInsetY)
+        }
+
         gradientView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(UIConstants.gradientViewInsetX)
-            make.top.bottom.equalToSuperview().inset(UIConstants.gradientViewInsetY)
+            make.edges.equalTo(frameView)
         }
 
         userpicView.snp.makeConstraints { make in
@@ -144,11 +150,12 @@ private extension PollCell {
         headerStackView.addArrangedSubview(userpicView)
         headerStackView.addArrangedSubview(typeAndNameStack)
         headerStackView.addArrangedSubview(votesView)
-        gradientView.addSubview(headerStackView)
+        frameView.addSubview(headerStackView)
         headerStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(UIConstants.headerStackTopInset)
             make.leading.trailing.equalToSuperview().inset(UIConstants.headerStackInsetX)
             make.bottom.equalToSuperview().inset(200)
         }
+        
     }
 }

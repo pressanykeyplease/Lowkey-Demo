@@ -27,6 +27,8 @@ class ChatViewController: UIViewController {
 
     // MARK: - Private properties
     private let tableView = UITableView()
+    private let toolbar = ChatToolbar()
+
     private var messages: [MessageInfo] = [
         .text(TextMessageInfo(userpic: UIImage(named: "elon-musk"), name: "Elon Musk", message: "Nice! 12 ppl in total. Let’s gather at the metro station!🚆🚆🚆")),
         .text(TextMessageInfo(userpic: UIImage(named: "elon-musk"), name: "Elon Musk", message: "Nice! 12 ppl in total. Let’s gather at the metro station!🚆🚆🚆")),
@@ -71,7 +73,6 @@ private extension ChatViewController {
     }
 
     func configureToolbar() {
-        let toolbar = ChatToolbar()
         view.addSubview(toolbar)
         toolbar.delegate = self
         toolbar.snp.makeConstraints { make in

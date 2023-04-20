@@ -56,6 +56,7 @@ final class ChatToolbar: UIView {
             string: "Message",
             attributes: [.foregroundColor: UIColor.Chat.placeholderColor]
         )
+        field.textColor = .Chat.textColor
         field.setLeftPaddingPoints(UIConstatns.textFieldPadding)
         field.setRightPaddingPoints(UIConstatns.textFieldPadding)
         return field
@@ -72,6 +73,7 @@ final class ChatToolbar: UIView {
 // MARK: - Private methods
 private extension ChatToolbar {
     func initialize() {
+        backgroundColor = .Chat.backgroundColor
         optionsButton.snp.makeConstraints { make in
             make.size.equalTo(UIConstatns.buttonSize)
         }

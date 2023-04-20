@@ -24,6 +24,20 @@ class PollCreationViewController: UIViewController {
 // MARK: - Private functions
 private extension PollCreationViewController {
     func initialize() {
+        view.backgroundColor = .Chat.backgroundColor
+        navigationItem.titleView = ChatNavigationTitleView(title: "New Poll", subtitle: nil)
+        navigationItem.leftBarButtonItem = makeLeftBarButtonItem()
+    }
+
+    func makeLeftBarButtonItem() -> UIBarButtonItem {
+        let image = UIImage(systemName: "xmark")
+        let leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(didTapDismissButton))
+        leftBarButtonItem.tintColor = .Navigation.tintColor
+        return leftBarButtonItem
+    }
+
+    @objc func didTapDismissButton() {
+        dismiss(animated: true)
     }
 }
 

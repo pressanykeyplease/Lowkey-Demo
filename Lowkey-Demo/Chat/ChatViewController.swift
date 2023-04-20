@@ -150,6 +150,9 @@ extension ChatViewController: UITableViewDataSource {
 // MARK: - ChatToolbarDelegate
 extension ChatViewController: ChatToolbarDelegate {
     func didTapOptionsButton() {
+        let vc = PollCreationModuleBuilder.build()
+        let nvc = UINavigationController(rootViewController: vc)
+        present(nvc, animated: true)
     }
 
     func didTapSendButton() {

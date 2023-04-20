@@ -10,9 +10,9 @@ import UIKit
 
 final class ChatUserpicView: UIView {
     // MARK: - Init
-    init(imgae: UIImage?) {
+    init(image: UIImage?) {
         super.init(frame: .zero)
-        imageView.image = imgae
+        imageView.image = image
         initialize()
     }
 

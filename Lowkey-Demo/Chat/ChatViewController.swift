@@ -104,7 +104,7 @@ private extension ChatViewController {
 
     func makeRightBarButtonItem() -> UIBarButtonItem {
         let image = UIImage(named: "elon-musk")
-        let userpicView = ChatUserpicView(imgae: image)
+        let userpicView = ChatUserpicView(image: image)
         let rightBarButtonItem = UIBarButtonItem(customView: userpicView)
         return rightBarButtonItem
     }

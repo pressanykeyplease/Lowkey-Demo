@@ -12,6 +12,8 @@ extension UIColor {
         static var tintColor: UIColor { HEX.hFEFEFE }
         static var backgroundColor: UIColor { HEX.h1C1A2A }
         static var subtitleColor: UIColor { HEX.h7E7A9A }
+        static var inactiveButtonColor: UIColor { HEX.h7E7A9A }
+        static var activeButtonColor: UIColor { HEX.h1C6EF2 }
     }
 
     struct Chat {

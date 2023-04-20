@@ -27,6 +27,7 @@ private extension PollCreationViewController {
         view.backgroundColor = .Chat.backgroundColor
         navigationItem.titleView = ChatNavigationTitleView(title: "New Poll", subtitle: nil)
         navigationItem.leftBarButtonItem = makeLeftBarButtonItem()
+        navigationItem.rightBarButtonItem = makeRightBarButtonItem()
     }
 
     func makeLeftBarButtonItem() -> UIBarButtonItem {
@@ -34,6 +35,14 @@ private extension PollCreationViewController {
         let leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(didTapDismissButton))
         leftBarButtonItem.tintColor = .Navigation.tintColor
         return leftBarButtonItem
+    }
+
+    func makeRightBarButtonItem() -> UIBarButtonItem {
+        let customView = BarButtonItem()
+        customView.configure(with: "Create")
+        customView.set(isActive: false)
+        let item = UIBarButtonItem(customView: customView)
+        return item
     }
 
     @objc func didTapDismissButton() {

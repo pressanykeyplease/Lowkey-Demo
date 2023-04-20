@@ -14,7 +14,9 @@ final class PollCell: UITableViewCell {
         userpicView.image = info.userpic
         pollTypeLabel.text = info.pollType
         nameLabel.text = info.username
+        messageLabel.text = info.message
         votesCountLabel.text = String(info.numberOfVotes)
+        options = info.options
     }
 
     // MARK: - Init
@@ -42,9 +44,10 @@ final class PollCell: UITableViewCell {
         static let gradientViewCornerRadius: CGFloat = 20
         static let votesViewSize: CGFloat = 50
         static let votesInfoInsetY: CGFloat = 8
-        static let headerStackTopInset: CGFloat = 12
-        static let headerStackInsetX: CGFloat = 20
+        static let stackInsetY: CGFloat = 12
+        static let stackInsetX: CGFloat = 20
         static let headerStackSpacing: CGFloat = 10
+        static let stackSpacing: CGFloat = 12
     }
         
     // MARK: - Private properties
@@ -92,6 +95,8 @@ final class PollCell: UITableViewCell {
         label.text = "Votes"
         return label
     }()
+
+    private var options: [String] = []
 }
 
 // MARK: - Private methods
@@ -142,6 +147,11 @@ private extension PollCell {
             make.top.bottom.equalToSuperview().inset(UIConstants.votesInfoInsetY)
         }
 
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.spacing = UIConstants.stackSpacing
+
         let headerStackView = UIStackView()
         headerStackView.axis = .horizontal
         headerStackView.alignment = .center
@@ -149,12 +159,16 @@ private extension PollCell {
         headerStackView.addArrangedSubview(userpicView)
         headerStackView.addArrangedSubview(typeAndNameStack)
         headerStackView.addArrangedSubview(votesView)
-        frameView.addSubview(headerStackView)
-        headerStackView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(UIConstants.headerStackTopInset)
-            make.leading.trailing.equalToSuperview().inset(UIConstants.headerStackInsetX)
-            make.bottom.equalToSuperview().inset(200)
+
+        stackView.addArrangedSubview(headerStackView)
+        stackView.addArrangedSubview(messageLabel)
+        
+        frameView.addSubview(stackView)
+        stackView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview().inset(UIConstants.stackInsetY)
+            make.leading.trailing.equalToSuperview().inset(UIConstants.stackInsetX)
         }
+
         
     }
 }

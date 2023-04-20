@@ -39,6 +39,7 @@ final class PollOptionCell: UITableViewCell {
         static let buttonViewAlpha: CGFloat = 0.1
         static let buttonViewCornerRadius: CGFloat = 12
         static let buttonViewWidth: CGFloat = 50
+        static let removeButtonSize: CGFloat = 14
     }
         
     // MARK: - Private properties
@@ -55,6 +56,13 @@ final class PollOptionCell: UITableViewCell {
         field.setLeftPaddingPoints(UIConstants.textFieldPadding)
         field.setRightPaddingPoints(UIConstants.textFieldPadding)
         return field
+    }()
+
+    private lazy var removeButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "xmark"), for: .normal)
+        button.tintColor = .white
+        return button
     }()
 }
 
@@ -78,6 +86,12 @@ private extension PollOptionCell {
         buttonView.snp.makeConstraints { make in
             make.trailing.top.bottom.equalTo(textField)
             make.width.equalTo(UIConstants.buttonViewWidth)
+        }
+
+        buttonView.addSubview(removeButton)
+        removeButton.snp.makeConstraints { make in
+            make.size.equalTo(UIConstants.removeButtonSize)
+            make.center.equalTo(buttonView)
         }
     }
 }

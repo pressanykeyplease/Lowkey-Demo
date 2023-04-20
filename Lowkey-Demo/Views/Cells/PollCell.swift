@@ -202,12 +202,14 @@ private extension PollCell {
         let view = UIView()
         view.layer.cornerRadius = UIConstants.optionViewCornerRadius
         view.backgroundColor = .Chat.pollOptionColor.withAlphaComponent(UIConstants.optionAlpha)
-        let label = UILabel()
-        label.textColor = .Chat.textColor
-        label.apply(style: .regular, size: UIConstants.pollOptionFontSize)
-        label.text = option
-        view.addSubview(label)
-        label.snp.makeConstraints { make in
+        let button = UIButton(type: .system)
+        button.backgroundColor = .clear
+        button.tintColor = .Chat.textColor
+        button.contentHorizontalAlignment = .leading
+        button.titleLabel?.apply(style: .regular, size: UIConstants.pollOptionFontSize)
+        button.setTitle(option, for: .normal)
+        view.addSubview(button)
+        button.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(UIConstants.optionTextInsetX)
             make.centerY.equalToSuperview()
         }

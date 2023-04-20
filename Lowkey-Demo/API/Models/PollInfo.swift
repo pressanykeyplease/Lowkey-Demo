@@ -9,6 +9,7 @@ import UIKit
 
 struct PollInfo {
     let userpic: UIImage?
+    let pollType: String
     let username: String
     let message: String
     let numberOfVotes: Int

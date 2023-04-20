@@ -11,7 +11,10 @@ import UIKit
 final class PollCell: UITableViewCell {
     // MARK: - Public
     func configure(with info: PollInfo) {
-        
+        userpicView.image = info.userpic
+        pollTypeLabel.text = info.pollType
+        nameLabel.text = info.username
+        votesCountLabel.text = String(info.numberOfVotes)
     }
 
     // MARK: - Init
@@ -34,6 +37,14 @@ final class PollCell: UITableViewCell {
         static let votesCountFontSize: CGFloat = 16
         static let votesFontSize: CGFloat = 10
         static let optionFontSize: CGFloat = 12
+        static let gradientViewInsetX: CGFloat = 15
+        static let gradientViewInsetY: CGFloat = 7
+        static let gradientViewCornerRadius: CGFloat = 20
+        static let votesViewSize: CGFloat = 50
+        static let votesInfoInsetY: CGFloat = 8
+        static let headerStackTopInset: CGFloat = 12
+        static let headerStackInsetX: CGFloat = 20
+        static let headerStackSpacing: CGFloat = 10
     }
         
     // MARK: - Private properties
@@ -48,21 +59,21 @@ final class PollCell: UITableViewCell {
     private let pollTypeLabel: UILabel = {
         let label = UILabel()
         label.apply(style: .regular, size: UIConstants.pollTypeFontSize)
-        label.textColor = .Chat.nameLabelColor
+        label.textColor = .Chat.textColor
         return label
     }()
 
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.apply(style: .semibold, size: UIConstants.nameFontSize)
-        label.textColor = .Chat.nameLabelColor
+        label.textColor = .Chat.textColor
         return label
     }()
 
     private let messageLabel: UILabel = {
         let label = UILabel()
         label.apply(style: .medium, size: UIConstants.messageFontSize)
-        label.textColor = .Chat.messageLabelColor
+        label.textColor = .Chat.textColor
         label.numberOfLines = .zero
         return label
     }()
@@ -70,14 +81,15 @@ final class PollCell: UITableViewCell {
     private let votesCountLabel: UILabel = {
         let label = UILabel()
         label.apply(style: .semibold, size: UIConstants.votesCountFontSize)
-        label.textColor = .Chat.nameLabelColor
+        label.textColor = .Chat.textColor
         return label
     }()
 
     private let votesLabel: UILabel = {
         let label = UILabel()
         label.apply(style: .semibold, size: UIConstants.votesFontSize)
-        label.textColor = .Chat.nameLabelColor
+        label.textColor = .Chat.textColor
+        label.text = "Votes"
         return label
     }()
 }
@@ -88,5 +100,55 @@ private extension PollCell {
         selectionStyle = .none
         backgroundColor = .clear
         
+        let gradientView = UIView()
+        gradientView.layer.cornerRadius = UIConstants.gradientViewCornerRadius
+        gradientView.backgroundColor = .systemPink
+        contentView.addSubview(gradientView)
+        gradientView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(UIConstants.gradientViewInsetX)
+            make.top.bottom.equalToSuperview().inset(UIConstants.gradientViewInsetY)
+        }
+
+        userpicView.snp.makeConstraints { make in
+            make.size.equalTo(UIConstants.userpicSize)
+        }
+
+        let typeAndNameStack = UIStackView()
+        typeAndNameStack.axis = .vertical
+        typeAndNameStack.alignment = .leading
+        typeAndNameStack.addArrangedSubview(pollTypeLabel)
+        typeAndNameStack.addArrangedSubview(nameLabel)
+        
+        let votesView = UIView()
+        votesView.layer.cornerRadius = UIConstants.votesViewSize / 2
+        votesView.backgroundColor = .Chat.votesViewColor
+        votesView.snp.makeConstraints { make in
+            make.size.equalTo(UIConstants.votesViewSize)
+        }
+
+        let votesInfoStack = UIStackView()
+        votesInfoStack.axis = .vertical
+        votesInfoStack.alignment = .center
+        votesInfoStack.addArrangedSubview(votesCountLabel)
+        votesInfoStack.addArrangedSubview(votesLabel)
+        votesView.addSubview(votesInfoStack)
+        votesInfoStack.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.bottom.equalToSuperview().inset(UIConstants.votesInfoInsetY)
+        }
+
+        let headerStackView = UIStackView()
+        headerStackView.axis = .horizontal
+        headerStackView.alignment = .center
+        headerStackView.spacing = UIConstants.headerStackSpacing
+        headerStackView.addArrangedSubview(userpicView)
+        headerStackView.addArrangedSubview(typeAndNameStack)
+        headerStackView.addArrangedSubview(votesView)
+        gradientView.addSubview(headerStackView)
+        headerStackView.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(UIConstants.headerStackTopInset)
+            make.leading.trailing.equalToSuperview().inset(UIConstants.headerStackInsetX)
+            make.bottom.equalToSuperview().inset(200)
+        }
     }
 }

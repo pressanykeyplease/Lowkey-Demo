@@ -18,6 +18,8 @@ extension UIColor {
         static var nameLabelColor: UIColor { HEX.h7E7A9A }
         static var messageLabelColor: UIColor { HEX.hFEFEFE }
         static var backgroundColor: UIColor { HEX.h14131B }
+        static var votesViewColor: UIColor { HEX.hAC1393 }
+        static var textColor: UIColor { HEX.hFEFEFE }
     }
 
     fileprivate struct HEX {
@@ -25,6 +27,7 @@ extension UIColor {
         static let h7E7A9A = UIColor(hex: 0x7E7A9A)
         static let h1C1A2A = UIColor(hex: 0x1C1A2A)
         static let h14131B = UIColor(hex: 0x14131B)
+        static let hAC1393 = UIColor(hex: 0xAC1393)
     }
 }
 

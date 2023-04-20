@@ -110,7 +110,6 @@ private extension PollCell {
             make.leading.trailing.equalToSuperview().inset(UIConstants.frameViewInsetX)
             make.top.bottom.equalToSuperview().inset(UIConstants.frameViewInsetY)
         }
-
         gradientView.snp.makeConstraints { make in
             make.edges.equalTo(frameView)
         }

@@ -20,6 +20,15 @@ class ChatViewController: UIViewController {
         initialize()
     }
 
+    // MARK: - Override
+    override var canBecomeFirstResponder: Bool {
+        true
+    }
+
+    override var inputAccessoryView: UIView? {
+        toolbar
+    }
+
     // MARK: - Private constants
     private enum UIConstants {
         static let tableViewBottomInset: CGFloat = 45
@@ -59,7 +68,7 @@ private extension ChatViewController {
 
     func configureTableView() {
         view.backgroundColor = .Chat.backgroundColor
-        hideKeyboardWhenTappedAround()
+        tableView.keyboardDismissMode = .interactive
         tableView.separatorStyle = .none
         tableView.dataSource = self
         tableView.register(TextMessageCell.self, forCellReuseIdentifier: String(describing: TextMessageCell.self))
@@ -130,10 +139,12 @@ extension ChatViewController: UITableViewDataSource {
 // MARK: - ChatToolbarDelegate
 extension ChatViewController: ChatToolbarDelegate {
     func didTapOptionsButton() {
-        showInProgressAlert()
+//        textField.resignFirstResponder()
+//        showInProgressAlert()
     }
 
     func didTapSendButton() {
-        showInProgressAlert()
+//        textField.resignFirstResponder()
+//        showInProgressAlert()
     }
 }

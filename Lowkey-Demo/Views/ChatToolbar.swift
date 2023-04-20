@@ -27,6 +27,13 @@ final class ChatToolbar: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Override
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+        guard let window = self.window else { return }
+        bottomAnchor.constraint(lessThanOrEqualToSystemSpacingBelow: window.safeAreaLayoutGuide.bottomAnchor, multiplier: UIConstatns.bottomConstraintMultiplier).isActive = true
+    }
+
     // MARK: - Private constants
     private enum UIConstatns {
         static let stackSpacing: CGFloat = 10
@@ -37,6 +44,7 @@ final class ChatToolbar: UIView {
         static let textFieldCornerRadius: CGFloat = 10
         static let fontSize: CGFloat = 15
         static let textFieldPadding: CGFloat = 15
+        static let bottomConstraintMultiplier: CGFloat = 1
     }
 
     // MARK: - Private properties

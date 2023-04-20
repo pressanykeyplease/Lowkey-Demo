@@ -24,6 +24,7 @@ extension UIColor {
         static var pollGradientEndColor: UIColor { HEX.h0A0D26 }
         static var textFieldBackgroundColor: UIColor { HEX.h2E2C3C }
         static var placeholderColor: UIColor { HEX.h7E7A9A }
+        static var pollOptionColor: UIColor { HEX.h1C6EF2 }
     }
 
     fileprivate struct HEX {
@@ -35,6 +36,7 @@ extension UIColor {
         static let hA83D7F = UIColor(hex: 0xA83D7F)
         static let h0A0D26 = UIColor(hex: 0x0A0D26)
         static let h2E2C3C = UIColor(hex: 0x2E2C3C)
+        static let h1C6EF2 = UIColor(hex: 0x1C6EF2)
     }
 }
 

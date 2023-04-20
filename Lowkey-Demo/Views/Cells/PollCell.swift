@@ -17,6 +17,7 @@ final class PollCell: UITableViewCell {
         messageLabel.text = info.message
         votesCountLabel.text = String(info.numberOfVotes)
         options = info.options
+        configureOptionsStack()
     }
 
     // MARK: - Init
@@ -44,10 +45,17 @@ final class PollCell: UITableViewCell {
         static let gradientViewCornerRadius: CGFloat = 20
         static let votesViewSize: CGFloat = 50
         static let votesInfoInsetY: CGFloat = 8
-        static let stackInsetY: CGFloat = 12
+        static let stackTopInset: CGFloat = 12
+        static let stackBottomInset: CGFloat = 20
         static let stackInsetX: CGFloat = 20
         static let headerStackSpacing: CGFloat = 10
         static let stackSpacing: CGFloat = 12
+        static let optionsStackSpacing: CGFloat = 8
+        static let optionViewCornerRadius: CGFloat = 15
+        static let pollOptionFontSize: CGFloat = 12
+        static let optionTextInsetX: CGFloat = 15
+        static let optionViewHeight: CGFloat = 40
+        static let optionAlpha: CGFloat = 0.15
     }
         
     // MARK: - Private properties
@@ -94,6 +102,14 @@ final class PollCell: UITableViewCell {
         label.textColor = .Chat.textColor
         label.text = "Votes"
         return label
+    }()
+
+    private let optionsStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.spacing = UIConstants.optionsStackSpacing
+        return stackView
     }()
 
     private var options: [String] = []
@@ -162,13 +178,42 @@ private extension PollCell {
 
         stackView.addArrangedSubview(headerStackView)
         stackView.addArrangedSubview(messageLabel)
-        
+        stackView.addArrangedSubview(optionsStackView)
+
         frameView.addSubview(stackView)
         stackView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(UIConstants.stackInsetY)
+            make.top.equalToSuperview().inset(UIConstants.stackTopInset)
+            make.bottom.equalToSuperview().inset(UIConstants.stackBottomInset)
             make.leading.trailing.equalToSuperview().inset(UIConstants.stackInsetX)
         }
+    }
 
-        
+    func configureOptionsStack() {
+        optionsStackView.arrangedSubviews.forEach {
+            optionsStackView.removeArrangedSubview($0)
+        }
+        options.forEach {
+            let view = makeOptionView(with: $0)
+            optionsStackView.addArrangedSubview(view)
+        }
+    }
+
+    func makeOptionView(with option: String) -> UIView {
+        let view = UIView()
+        view.layer.cornerRadius = UIConstants.optionViewCornerRadius
+        view.backgroundColor = .Chat.pollOptionColor.withAlphaComponent(UIConstants.optionAlpha)
+        let label = UILabel()
+        label.textColor = .Chat.textColor
+        label.apply(style: .regular, size: UIConstants.pollOptionFontSize)
+        label.text = option
+        view.addSubview(label)
+        label.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(UIConstants.optionTextInsetX)
+            make.centerY.equalToSuperview()
+        }
+        view.snp.makeConstraints { make in
+            make.height.equalTo(UIConstants.optionViewHeight)
+        }
+        return view
     }
 }

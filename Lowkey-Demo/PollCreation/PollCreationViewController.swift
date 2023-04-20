@@ -28,6 +28,7 @@ private extension PollCreationViewController {
         navigationItem.titleView = ChatNavigationTitleView(title: "New Poll", subtitle: nil)
         navigationItem.leftBarButtonItem = makeLeftBarButtonItem()
         navigationItem.rightBarButtonItem = makeRightBarButtonItem()
+        navigationController?.navigationBar.backgroundColor = .Navigation.presentedViewNavigationBarColor
     }
 
     func makeLeftBarButtonItem() -> UIBarButtonItem {

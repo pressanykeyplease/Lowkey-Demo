@@ -14,6 +14,7 @@ extension UIColor {
         static var subtitleColor: UIColor { HEX.h7E7A9A }
         static var inactiveButtonColor: UIColor { HEX.h7E7A9A }
         static var activeButtonColor: UIColor { HEX.h1C6EF2 }
+        static var presentedViewNavigationBarColor: UIColor { HEX.h0E121F }
     }
 
     struct Chat {
@@ -39,6 +40,7 @@ extension UIColor {
         static let h0A0D26 = UIColor(hex: 0x0A0D26)
         static let h2E2C3C = UIColor(hex: 0x2E2C3C)
         static let h1C6EF2 = UIColor(hex: 0x1C6EF2)
+        static let h0E121F = UIColor(hex: 0x0E121F)
     }
 }
 

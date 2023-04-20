@@ -43,7 +43,12 @@ class ChatViewController: UIViewController {
         .text(TextMessageInfo(userpic: UIImage(named: "elon-musk"), name: "Elon Musk", message: "Nice! 12 ppl in total. Let’s gather at the metro station!🚆🚆🚆")),
         .text(TextMessageInfo(userpic: UIImage(named: "elon-musk"), name: "Elon Musk", message: "Nice! 12 ppl in total. Let’s gather at the metro station!🚆🚆🚆")),
         .text(TextMessageInfo(userpic: UIImage(named: "elon-musk"), name: "Elon Musk", message: "Nice! 12 ppl in total. Let’s gather at the metro station!🚆🚆🚆")),
-        .poll(PollInfo(userpic: UIImage(named: "elon-musk"), pollType: "Public Poll", username: "Elon Musk", message: "What is the greatest NBA team in the history?", numberOfVotes: 3, options: ["Los Angeles Lakers", "Golden State Warriors", "Chicago Bulls", "Boston Celtics"], selectedOption: 0))
+        .poll(PollInfo(userpic: UIImage(named: "elon-musk"), pollType: "Public Poll", username: "Elon Musk", message: "What is the greatest NBA team in the history?", numberOfVotes: 3, options: ["Los Angeles Lakers", "Golden State Warriors", "Chicago Bulls", "Boston Celtics"], selectedOption: 0)),
+        .text(TextMessageInfo(userpic: UIImage(named: "elon-musk"), name: "Elon Musk", message: "Nice! 12 ppl in total. Let’s gather at the metro station!🚆🚆🚆")),
+        .text(TextMessageInfo(userpic: UIImage(named: "elon-musk"), name: "Elon Musk", message: "Nice! 12 ppl in total. Let’s gather at the metro station!🚆🚆🚆")),
+        .text(TextMessageInfo(userpic: UIImage(named: "elon-musk"), name: "Elon Musk", message: "Nice! 12 ppl in total. Let’s gather at the metro station!🚆🚆🚆")),
+        .text(TextMessageInfo(userpic: UIImage(named: "elon-musk"), name: "Elon Musk", message: "Nice! 12 ppl in total. Let’s gather at the metro station!🚆🚆🚆")),
+        .text(TextMessageInfo(userpic: UIImage(named: "elon-musk"), name: "Elon Musk", message: "Nice! 12 ppl in total. Let’s gather at the metro station!🚆🚆🚆")),
     ]
 }
 
@@ -109,6 +114,12 @@ private extension ChatViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+
+    func scrollToBottomMessage() {
+        guard !messages.isEmpty else { return }
+        let bottomMessageIndex = IndexPath(row: messages.count - 1, section: .zero)
+        tableView.scrollToRow(at: bottomMessageIndex, at: .bottom, animated: true)
+    }
 }
 
 // MARK: - ChatViewProtocol
@@ -139,12 +150,9 @@ extension ChatViewController: UITableViewDataSource {
 // MARK: - ChatToolbarDelegate
 extension ChatViewController: ChatToolbarDelegate {
     func didTapOptionsButton() {
-//        textField.resignFirstResponder()
-//        showInProgressAlert()
     }
 
     func didTapSendButton() {
-//        textField.resignFirstResponder()
-//        showInProgressAlert()
+        scrollToBottomMessage()
     }
 }

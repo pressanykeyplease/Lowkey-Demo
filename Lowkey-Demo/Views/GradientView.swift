@@ -17,13 +17,9 @@ final class GradientView : UIView {
     // MARK: - Override
     override init(frame: CGRect) {
         super.init(frame: frame)
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+        gradientLayer.startPoint = CGPoint(x: -0.5, y: -0.5)
+        gradientLayer.endPoint = CGPoint(x: 0.8, y: 0.8)
         gradientLayer.type = .axial
-//        gradientLayer.locations = [
-//            NSNumber(value: 0.6),
-//            NSNumber(value: 0.8)
-//        ]
         gradientLayer.colors = [
             UIColor.Chat.pollGradientStartColor.cgColor,
             UIColor.Chat.pollGradientEndColor.cgColor
@@ -44,5 +40,5 @@ final class GradientView : UIView {
     // MARK: - Private properties
     private let gradientLayer = CAGradientLayer()
     private var colors: [UIColor] = []
-    private let cornerRadius: CGFloat = 20
+    private let cornerRadius: CGFloat = 18
 }

@@ -14,6 +14,8 @@
 		231508BC29F050BA00A749AB /* TextMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508BB29F050BA00A749AB /* TextMessageCell.swift */; };
 		231508BE29F050C100A749AB /* PollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508BD29F050C100A749AB /* PollCell.swift */; };
 		231508C029F0D78E00A749AB /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508BF29F0D78E00A749AB /* GradientView.swift */; };
+		231508C229F0E14000A749AB /* ChatToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508C129F0E14000A749AB /* ChatToolbar.swift */; };
+		231508C429F0E6CF00A749AB /* UIImage+extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508C329F0E6CF00A749AB /* UIImage+extra.swift */; };
 		2335B58B29F004AF004E0C96 /* ChatModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B58629F004AF004E0C96 /* ChatModuleBuilder.swift */; };
 		2335B58C29F004AF004E0C96 /* ChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B58729F004AF004E0C96 /* ChatPresenter.swift */; };
 		2335B58D29F004AF004E0C96 /* ChatRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2335B58829F004AF004E0C96 /* ChatRouter.swift */; };
@@ -45,6 +47,8 @@
 		231508BB29F050BA00A749AB /* TextMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMessageCell.swift; sourceTree = "<group>"; };
 		231508BD29F050C100A749AB /* PollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollCell.swift; sourceTree = "<group>"; };
 		231508BF29F0D78E00A749AB /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		231508C129F0E14000A749AB /* ChatToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatToolbar.swift; sourceTree = "<group>"; };
+		231508C329F0E6CF00A749AB /* UIImage+extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extra.swift"; sourceTree = "<group>"; };
 		2335B58629F004AF004E0C96 /* ChatModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModuleBuilder.swift; sourceTree = "<group>"; };
 		2335B58729F004AF004E0C96 /* ChatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPresenter.swift; sourceTree = "<group>"; };
 		2335B58829F004AF004E0C96 /* ChatRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRouter.swift; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 				2335B59D29F01409004E0C96 /* ChatNavigationTitleView.swift */,
 				231508B029F02C0300A749AB /* ChatUserpicView.swift */,
 				231508BF29F0D78E00A749AB /* GradientView.swift */,
+				231508C129F0E14000A749AB /* ChatToolbar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 			children = (
 				2335B5AF29F01A3D004E0C96 /* UIColor+extra.swift */,
 				2335B5AD29F016EE004E0C96 /* UILabel+style.swift */,
+				231508C329F0E6CF00A749AB /* UIImage+extra.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -311,6 +317,7 @@
 				231508B129F02C0300A749AB /* ChatUserpicView.swift in Sources */,
 				2335B59B29F012DC004E0C96 /* PollCreationInteractor.swift in Sources */,
 				23FADC2329F000EB000FC509 /* SceneDelegate.swift in Sources */,
+				231508C229F0E14000A749AB /* ChatToolbar.swift in Sources */,
 				2335B5B029F01A3D004E0C96 /* UIColor+extra.swift in Sources */,
 				2335B58E29F004AF004E0C96 /* ChatViewController.swift in Sources */,
 				2335B58D29F004AF004E0C96 /* ChatRouter.swift in Sources */,
@@ -320,6 +327,7 @@
 				231508BE29F050C100A749AB /* PollCell.swift in Sources */,
 				2335B59E29F01409004E0C96 /* ChatNavigationTitleView.swift in Sources */,
 				2335B58F29F004AF004E0C96 /* ChatInteractor.swift in Sources */,
+				231508C429F0E6CF00A749AB /* UIImage+extra.swift in Sources */,
 				2335B5AE29F016EE004E0C96 /* UILabel+style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -41,6 +41,7 @@ private extension ChatViewController {
     func initialize() {
         configureNavigationBar()
         configureTableView()
+        configureToolbar()
     }
 
     func configureNavigationBar() {
@@ -55,6 +56,7 @@ private extension ChatViewController {
     }
 
     func configureTableView() {
+        view.backgroundColor = .Chat.backgroundColor
         tableView.dataSource = self
         tableView.register(TextMessageCell.self, forCellReuseIdentifier: String(describing: TextMessageCell.self))
         tableView.register(PollCell.self, forCellReuseIdentifier: String(describing: PollCell.self))
@@ -62,6 +64,16 @@ private extension ChatViewController {
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+    }
+
+    func configureToolbar() {
+        let toolbar = ChatToolbar()
+        view.addSubview(toolbar)
+        toolbar.delegate = self
+        toolbar.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
 
@@ -109,4 +121,9 @@ extension ChatViewController: UITableViewDataSource {
             return cell
         }
     }
+}
+
+// MARK: - ChatToolbarDelegate
+extension ChatViewController: ChatToolbarDelegate {
+    
 }

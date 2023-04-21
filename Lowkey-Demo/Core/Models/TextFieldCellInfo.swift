@@ -8,4 +8,5 @@
 struct TextFieldCellInfo {
     let placeholder: String
     let text: String?
+    let lengthLimit: Int?
 }

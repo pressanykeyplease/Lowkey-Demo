@@ -31,7 +31,7 @@ final class PollOptionCell: UITableViewCell {
     // MARK: - Private constants
     private enum UIConstants {
         static let fontSize: CGFloat = 15
-        static let textFieldPadding: CGFloat = 20
+        static let textFieldPadding: CGFloat = 15
         static let textFieldCornerRadius: CGFloat = 12
         static let insetY: CGFloat = 4
         static let insetX: CGFloat = 20

@@ -8,14 +8,21 @@
 import SnapKit
 import UIKit
 
+protocol TextInputCellDelegate: AnyObject {
+    func didUpdateInputCount(from cell: TextInputCell, with count: Int)
+}
+
 final class TextInputCell: UITableViewCell {
     // MARK: - Public
+    weak var delegate: TextInputCellDelegate?
+
     func configure(with info: TextFieldCellInfo) {
         textField.attributedPlaceholder = NSAttributedString(
             string: info.placeholder,
             attributes: [.foregroundColor: UIColor.Chat.placeholderColor]
         )
         textField.text = info.text
+        lengthLimit = info.lengthLimit
     }
 
     // MARK: - Init
@@ -37,8 +44,10 @@ final class TextInputCell: UITableViewCell {
         static let insetX: CGFloat = 20
         static let fieldHeight: CGFloat = 51
     }
-        
+
     // MARK: - Private properties
+    private var lengthLimit: Int? = nil
+
     private lazy var textField: UITextField = {
         let field = UITextField()
         field.delegate = self
@@ -72,4 +81,16 @@ private extension TextInputCell {
 
 // MARK: - UITextFieldDelegate
 extension TextInputCell: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let lengthLimit else { return true }
+        guard let textFieldText = textField.text,
+            let rangeOfTextToReplace = Range(range, in: textFieldText) else {
+                return false
+        }
+        let substringToReplace = textFieldText[rangeOfTextToReplace]
+        let count = textFieldText.count - substringToReplace.count + string.count
+        guard count <= lengthLimit else { return false }
+        delegate?.didUpdateInputCount(from: self, with: count)
+        return true
+    }
 }

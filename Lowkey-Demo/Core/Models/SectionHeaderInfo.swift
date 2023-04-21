@@ -7,5 +7,5 @@
 
 struct SectionHeaderInfo {
     let title: String
-    let secondaryTitle: String?
+    var secondaryTitle: String?
 }

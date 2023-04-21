@@ -20,15 +20,18 @@ class PollCreationViewController: UIViewController {
         initialize()
     }
 
+    // MARK: - Private constants
+    private let titleMaxLength = 140
+
     // MARK: - Private properties
     private let tableView = UITableView()
-    private var rows: [PollRowType] = [
-        .header(.init(title: "Question", secondaryTitle: "0/140")),
-        .textField(.init(placeholder: "Ask a question", text: nil)),
+    private lazy var rows: [PollRowType] = [
+        .header(.init(title: "Question", secondaryTitle: "0/\(titleMaxLength)")),
+        .textField(.init(placeholder: "Ask a question", text: nil, lengthLimit: titleMaxLength)),
         .header(.init(title: "Options", secondaryTitle: "0/8")),
-        .option(.init(placeholder: "Place some text here", text: nil)),
-        .option(.init(placeholder: "Place some text here", text: nil)),
-        .option(.init(placeholder: "Place some text here", text: nil)),
+        .option(.init(placeholder: "Place some text here", text: nil, lengthLimit: nil)),
+        .option(.init(placeholder: "Place some text here", text: nil, lengthLimit: nil)),
+        .option(.init(placeholder: "Place some text here", text: nil, lengthLimit: nil)),
         .button("Add an option")
     ]
 }
@@ -81,6 +84,15 @@ private extension PollCreationViewController {
     @objc func didTapDismissButton() {
         dismiss(animated: true)
     }
+
+    func updateHeaderCellInput(with count: Int) {
+        // In a real situation we would calculate that header's IndexPath
+        let indexPath = IndexPath(row: .zero, section: .zero)
+        guard case .header(var info) = rows[.zero] else { return }
+        info.secondaryTitle = "\(count)/\(titleMaxLength)"
+        rows[.zero] = .header(info)
+        tableView.reloadRows(at: [indexPath], with: .none)
+    }
 }
 
 // MARK: - PollCreationViewProtocol
@@ -103,6 +115,7 @@ extension PollCreationViewController: UITableViewDataSource {
         case .textField(let info):
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TextInputCell.self), for: indexPath) as! TextInputCell
             cell.configure(with: info)
+            cell.delegate = self
             return cell
         case .option(let info):
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PollOptionCell.self), for: indexPath) as! PollOptionCell
@@ -113,5 +126,12 @@ extension PollCreationViewController: UITableViewDataSource {
             cell.configure(with: title)
             return cell
         }
+    }
+}
+
+// MARK: - TextInputCellDelegate
+extension PollCreationViewController: TextInputCellDelegate {
+    func didUpdateInputCount(from cell: TextInputCell, with count: Int) {
+        updateHeaderCellInput(with: count)
     }
 }

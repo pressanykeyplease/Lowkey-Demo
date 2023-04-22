@@ -147,6 +147,7 @@ extension ChatViewController: ChatToolbarDelegate {
     func didTapOptionsButton() {
         let vc = PollCreationModuleBuilder.build()
         let nvc = UINavigationController(rootViewController: vc)
+        nvc.isModalInPresentation = true
         present(nvc, animated: true)
     }
 

@@ -158,6 +158,7 @@ extension PollCreationViewController: UITableViewDataSource {
         case .addOptionButton:
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ButtonCell.self), for: indexPath) as! ButtonCell
             cell.configure(with: addButtonTitle)
+            cell.delegate = self
             return cell
         }
     }
@@ -167,5 +168,16 @@ extension PollCreationViewController: UITableViewDataSource {
 extension PollCreationViewController: TextInputCellDelegate {
     func didUpdateInputCount(from cell: TextInputCell, with count: Int) {
         updateHeaderCellInput(with: count)
+    }
+}
+
+// MARK: - ButtonCellDelegate
+extension PollCreationViewController: ButtonCellDelegate {
+    func didTapButton() {
+        guard let optionsHeaderRow = rows.firstIndex(of: .optionsHeader) else { return }
+        options.append(.empty)
+        let optionRow = optionsHeaderRow + options.count
+        rows.insert(.option(options.count - 1), at: optionRow)
+        tableView.reloadData()
     }
 }

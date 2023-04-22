@@ -58,12 +58,12 @@ private extension BarButtonItem {
     }
 
     func configureForActiveState() {
-        button.titleLabel?.textColor = .Navigation.activeButtonColor
+        button.tintColor = .Navigation.activeButtonColor
         button.isEnabled = true
     }
 
     func configureForInactiveState() {
-        button.titleLabel?.textColor = .Navigation.inactiveButtonColor
+        button.tintColor = .Navigation.inactiveButtonColor
         button.isEnabled = false
     }
 

@@ -7,11 +7,16 @@
 
 import UIKit
 
+protocol PollCreationViewDelegate: AnyObject {
+    func didCreate(poll: PollInfo)
+}
+
 protocol PollCreationViewProtocol: AnyObject {
 }
 
 class PollCreationViewController: UIViewController {
     // MARK: - Public
+    weak var delegate: PollCreationViewDelegate?
     var presenter: PollCreationPresenterProtocol?
 
     // MARK: - View lifecycle

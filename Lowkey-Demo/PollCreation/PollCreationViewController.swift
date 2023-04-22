@@ -21,19 +21,35 @@ class PollCreationViewController: UIViewController {
     }
 
     // MARK: - Private constants
-    private let titleMaxLength = 140
+    private let questionMaxLength = 140
+    private let defaultSection = 0
+    private let optionsMaxAmount = 8
+    private let questionHeaderTitle = "Question"
+    private let questionFieldPlaceholder = "Ask a question"
+    private let optionsHeaderTitle = "Options"
+    private let optionPlaceholder = "Add an option"
+    private let addButtonTitle = "Add an option"
+
+    private enum Row: Hashable {
+        case questionHeader
+        case questionField
+        case optionsHeader
+        case option(Int)
+        case addOptionButton
+    }
 
     // MARK: - Private properties
     private let tableView = UITableView()
-    private lazy var rows: [PollRowType] = [
-        .header(.init(title: "Question", secondaryTitle: "0/\(titleMaxLength)")),
-        .textField(.init(placeholder: "Ask a question", text: nil, lengthLimit: titleMaxLength)),
-        .header(.init(title: "Options", secondaryTitle: "0/8")),
-        .option(.init(placeholder: "Place some text here", text: nil, lengthLimit: nil)),
-        .option(.init(placeholder: "Place some text here", text: nil, lengthLimit: nil)),
-        .option(.init(placeholder: "Place some text here", text: nil, lengthLimit: nil)),
-        .button("Add an option")
+    private lazy var rows: [Row] = [
+        .questionHeader,
+        .questionField,
+        .optionsHeader,
+        .addOptionButton
     ]
+
+    private var questionInputCount: Int = .zero
+    private var question = String()
+    private lazy var options = [String]()
 }
 
 // MARK: - Private functions
@@ -85,12 +101,26 @@ private extension PollCreationViewController {
         dismiss(animated: true)
     }
 
+    func makeQuestionHeaderInfo() -> SectionHeaderInfo {
+        .init(title: questionHeaderTitle, secondaryTitle: "\(questionInputCount)/\(questionMaxLength)")
+    }
+
+    func makeQuestionFieldInfo() -> TextFieldCellInfo {
+        .init(placeholder: questionFieldPlaceholder, text: question, lengthLimit: questionMaxLength)
+    }
+
+    func makeOptionsHeaderInfo() -> SectionHeaderInfo {
+        .init(title: optionsHeaderTitle, secondaryTitle: "\(options.count)/\(optionsMaxAmount)")
+    }
+
+    func makeOptionCellInfo(index: Int) -> TextFieldCellInfo {
+        .init(placeholder: optionPlaceholder, text: options[index], lengthLimit: nil)
+    }
+
     func updateHeaderCellInput(with count: Int) {
-        // In a real situation we would calculate that header's IndexPath
-        let indexPath = IndexPath(row: .zero, section: .zero)
-        guard case .header(var info) = rows[.zero] else { return }
-        info.secondaryTitle = "\(count)/\(titleMaxLength)"
-        rows[.zero] = .header(info)
+        guard let row = rows.firstIndex(of: .questionHeader) else { return }
+        questionInputCount = count
+        let indexPath = IndexPath(row: row, section: defaultSection)
         tableView.reloadRows(at: [indexPath], with: .none)
     }
 }
@@ -108,22 +138,26 @@ extension PollCreationViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = rows[indexPath.row]
         switch row {
-        case .header(let info):
+        case .questionHeader:
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SectionHeaderCell.self), for: indexPath) as! SectionHeaderCell
-            cell.configure(with: info)
+            cell.configure(with: makeQuestionHeaderInfo())
             return cell
-        case .textField(let info):
+        case .questionField:
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TextInputCell.self), for: indexPath) as! TextInputCell
-            cell.configure(with: info)
+            cell.configure(with: makeQuestionFieldInfo())
             cell.delegate = self
             return cell
-        case .option(let info):
-            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PollOptionCell.self), for: indexPath) as! PollOptionCell
-            cell.configure(with: info)
+        case .optionsHeader:
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SectionHeaderCell.self), for: indexPath) as! SectionHeaderCell
+            cell.configure(with: makeOptionsHeaderInfo())
             return cell
-        case .button(let title):
+        case .option(let index):
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PollOptionCell.self), for: indexPath) as! PollOptionCell
+            cell.configure(with: makeOptionCellInfo(index: index))
+            return cell
+        case .addOptionButton:
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ButtonCell.self), for: indexPath) as! ButtonCell
-            cell.configure(with: title)
+            cell.configure(with: addButtonTitle)
             return cell
         }
     }

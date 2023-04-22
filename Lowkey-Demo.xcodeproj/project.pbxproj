@@ -20,7 +20,6 @@
 		231508CD29F0F61400A749AB /* UITextField+padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508CC29F0F61300A749AB /* UITextField+padding.swift */; };
 		231508D129F12B8B00A749AB /* BarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508D029F12B8B00A749AB /* BarButtonItem.swift */; };
 		231508D329F1325B00A749AB /* SectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508D229F1325B00A749AB /* SectionHeaderCell.swift */; };
-		231508D529F1360C00A749AB /* PollRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508D429F1360C00A749AB /* PollRowType.swift */; };
 		231508D729F136D000A749AB /* SectionHeaderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508D629F136D000A749AB /* SectionHeaderInfo.swift */; };
 		231508D929F137B200A749AB /* TextFieldCellInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508D829F137B200A749AB /* TextFieldCellInfo.swift */; };
 		231508DB29F13B7200A749AB /* TextInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231508DA29F13B7200A749AB /* TextInputCell.swift */; };
@@ -63,7 +62,6 @@
 		231508CC29F0F61300A749AB /* UITextField+padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+padding.swift"; sourceTree = "<group>"; };
 		231508D029F12B8B00A749AB /* BarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonItem.swift; sourceTree = "<group>"; };
 		231508D229F1325B00A749AB /* SectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderCell.swift; sourceTree = "<group>"; };
-		231508D429F1360C00A749AB /* PollRowType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollRowType.swift; sourceTree = "<group>"; };
 		231508D629F136D000A749AB /* SectionHeaderInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderInfo.swift; sourceTree = "<group>"; };
 		231508D829F137B200A749AB /* TextFieldCellInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCellInfo.swift; sourceTree = "<group>"; };
 		231508DA29F13B7200A749AB /* TextInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputCell.swift; sourceTree = "<group>"; };
@@ -140,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				231508CA29F0F38B00A749AB /* FontStyle.swift */,
-				231508D429F1360C00A749AB /* PollRowType.swift */,
 				231508D829F137B200A749AB /* TextFieldCellInfo.swift */,
 				231508D629F136D000A749AB /* SectionHeaderInfo.swift */,
 			);
@@ -162,12 +159,12 @@
 		2335B59C29F013E2004E0C96 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				231508BA29F050A900A749AB /* Cells */,
 				231508D029F12B8B00A749AB /* BarButtonItem.swift */,
 				2335B59D29F01409004E0C96 /* ChatNavigationTitleView.swift */,
 				231508B029F02C0300A749AB /* ChatUserpicView.swift */,
 				231508BF29F0D78E00A749AB /* GradientView.swift */,
 				231508C129F0E14000A749AB /* ChatToolbar.swift */,
+				231508BA29F050A900A749AB /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -361,7 +358,6 @@
 				231508DD29F13D9000A749AB /* PollOptionCell.swift in Sources */,
 				2335B59B29F012DC004E0C96 /* PollCreationInteractor.swift in Sources */,
 				23FADC2329F000EB000FC509 /* SceneDelegate.swift in Sources */,
-				231508D529F1360C00A749AB /* PollRowType.swift in Sources */,
 				231508C229F0E14000A749AB /* ChatToolbar.swift in Sources */,
 				2335B5B029F01A3D004E0C96 /* UIColor+extra.swift in Sources */,
 				231508D329F1325B00A749AB /* SectionHeaderCell.swift in Sources */,

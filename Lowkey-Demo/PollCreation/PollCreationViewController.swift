@@ -62,6 +62,8 @@ class PollCreationViewController: UIViewController {
 
     // MARK: - Private properties
     private let tableView = UITableView()
+    private let createBarButtonItem = BarButtonItem()
+
     private lazy var topSectionRows: [TopSectionRow] = [
         .questionHeader,
         .questionField,
@@ -116,10 +118,9 @@ private extension PollCreationViewController {
     }
 
     func makeRightBarButtonItem() -> UIBarButtonItem {
-        let customView = BarButtonItem()
-        customView.configure(with: "Create")
-        customView.set(isActive: false)
-        let item = UIBarButtonItem(customView: customView)
+        createBarButtonItem.configure(with: "Create")
+        createBarButtonItem.set(isActive: false)
+        let item = UIBarButtonItem(customView: createBarButtonItem)
         return item
     }
 
@@ -192,6 +193,13 @@ private extension PollCreationViewController {
             cell.startEditing()
         }
     }
+
+    func updateCreateButtonVisibility() {
+        let questionIsPrepared = !question.isEmpty
+        let optionsArePrepared = options.filter { !$0.isEmpty }.count >= optionsRequiredAmount
+        let createButtonAvailable = questionIsPrepared && optionsArePrepared
+        createBarButtonItem.set(isActive: createButtonAvailable)
+    }
 }
 
 // MARK: - PollCreationViewProtocol
@@ -258,6 +266,7 @@ extension PollCreationViewController: TextInputCellDelegate {
         guard let text else { return }
         updateHeaderCellInput(with: text.count)
         question = text
+        updateCreateButtonVisibility()
     }
 }
 
@@ -274,6 +283,7 @@ extension PollCreationViewController: PollOptionCellDelegate {
         guard let text,
               let indexPath = tableView.indexPath(for: cell) else { return }
         options[indexPath.row] = text
+        updateCreateButtonVisibility()
     }
 
     func didTapRemoveButton(from cell: PollOptionCell) {
@@ -282,6 +292,7 @@ extension PollCreationViewController: PollOptionCellDelegate {
         tableView.reloadSections(IndexSet(integer: Sections.options.rawValue), with: .fade)
         updateOptionsHeader()
         updateAddButtonVisibility()
+        updateCreateButtonVisibility()
     }
 
     func didTapReturnButton(from cell: PollOptionCell) {

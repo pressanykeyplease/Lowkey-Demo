@@ -115,6 +115,12 @@ private extension ChatViewController {
         let bottomMessageIndex = IndexPath(row: messages.count - 1, section: .zero)
         tableView.scrollToRow(at: bottomMessageIndex, at: .bottom, animated: true)
     }
+
+    func send(message: MessageInfo) {
+        messages.append(message)
+        tableView.reloadData()
+        scrollToBottomMessage()
+    }
 }
 
 // MARK: - ChatViewProtocol
@@ -155,9 +161,7 @@ extension ChatViewController: ChatToolbarDelegate {
 
 // MARK: - PollCreationViewDelegate
 extension ChatViewController: PollCreationViewDelegate {
-    func didCreate(poll: PollInfo) {
-        messages.append(.poll(poll))
-        tableView.reloadData()
-        scrollToBottomMessage()
+    func didCreatePoll(with info: PollInfo) {
+        send(message: .poll(info))
     }
 }

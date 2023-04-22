@@ -8,7 +8,7 @@
 import UIKit
 
 protocol PollCreationViewDelegate: AnyObject {
-    func didCreate(poll: PollInfo)
+    func didCreatePoll(with info: PollInfo)
 }
 
 protocol PollCreationViewProtocol: AnyObject {
@@ -306,14 +306,14 @@ extension PollCreationViewController: PollOptionCellDelegate {
 extension PollCreationViewController: BarButtonItemDelegate {
     func didTapBarButton() {
         // Mock data + fields data
-        let poll = PollInfo(userpic: UIImage(named: "elon-musk"),
+        let info = PollInfo(userpic: UIImage(named: "elon-musk"),
                             pollType: "Public Poll",
                             username: "Elon Musk",
                             message: question,
                             numberOfVotes: .zero,
                             options: options,
                             selectedOption: nil)
-        delegate?.didCreate(poll: poll)
+        delegate?.didCreatePoll(with: info)
         dismiss(animated: true)
     }
 }

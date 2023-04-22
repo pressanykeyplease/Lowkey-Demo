@@ -64,7 +64,11 @@ private extension PollCreationViewController {
         navigationItem.titleView = ChatNavigationTitleView(title: "New Poll", subtitle: nil)
         navigationItem.leftBarButtonItem = makeLeftBarButtonItem()
         navigationItem.rightBarButtonItem = makeRightBarButtonItem()
-        navigationController?.navigationBar.backgroundColor = .Navigation.presentedViewNavigationBarColor
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .Navigation.presentedViewNavigationBarColor
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
 
     func configureTableView() {

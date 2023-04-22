@@ -22,29 +22,34 @@ class PollCreationViewController: UIViewController {
 
     // MARK: - Private constants
     private let questionMaxLength = 140
-    private let defaultSection = 0
+    private let topSectionIndex = 0
+    private let optionsSectionIndex = 1
     private let optionsMaxAmount = 8
+    private let numberOfRowsInButtonSection = 1
     private let questionHeaderTitle = "Question"
     private let questionFieldPlaceholder = "Ask a question"
     private let optionsHeaderTitle = "Options"
     private let optionPlaceholder = "Add an option"
     private let addButtonTitle = "Add an option"
 
-    private enum Row: Hashable {
+    private enum TopSectionRow: Hashable {
         case questionHeader
         case questionField
         case optionsHeader
-        case option(Int)
+    }
+
+    private enum Sections: Int, CaseIterable {
+        case top
+        case options
         case addOptionButton
     }
 
     // MARK: - Private properties
     private let tableView = UITableView()
-    private lazy var rows: [Row] = [
+    private lazy var topSectionRows: [TopSectionRow] = [
         .questionHeader,
         .questionField,
-        .optionsHeader,
-        .addOptionButton
+        .optionsHeader
     ]
 
     private var questionInputCount: Int = .zero
@@ -122,10 +127,17 @@ private extension PollCreationViewController {
     }
 
     func updateHeaderCellInput(with count: Int) {
-        guard let row = rows.firstIndex(of: .questionHeader) else { return }
+        guard let row = topSectionRows.firstIndex(of: .questionHeader) else { return }
         questionInputCount = count
-        let indexPath = IndexPath(row: row, section: defaultSection)
+        let indexPath = IndexPath(row: row, section: topSectionIndex)
         tableView.reloadRows(at: [indexPath], with: .none)
+    }
+
+    func updateOptionsHeader() {
+        guard let optionsHeaderRow = topSectionRows.firstIndex(of: .optionsHeader) else { return }
+        let optionsHeaderIndexPath = IndexPath(row: optionsHeaderRow,
+                                               section: topSectionIndex)
+        tableView.reloadRows(at: [optionsHeaderIndexPath], with: .none)
     }
 }
 
@@ -135,36 +147,54 @@ extension PollCreationViewController: PollCreationViewProtocol {
 
 // MARK: - UITableViewDataSource
 extension PollCreationViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        Sections.allCases.count
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        rows.count
+        switch Sections(rawValue: section) {
+        case .top:
+            return topSectionRows.count
+        case .options:
+            return options.count
+        case .addOptionButton:
+            return numberOfRowsInButtonSection
+        default:
+            fatalError("Can't find section for index: \(section)")
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let row = rows[indexPath.row]
-        switch row {
-        case .questionHeader:
-            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SectionHeaderCell.self), for: indexPath) as! SectionHeaderCell
-            cell.configure(with: makeQuestionHeaderInfo())
-            return cell
-        case .questionField:
-            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TextInputCell.self), for: indexPath) as! TextInputCell
-            cell.configure(with: makeQuestionFieldInfo())
-            cell.delegate = self
-            return cell
-        case .optionsHeader:
-            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SectionHeaderCell.self), for: indexPath) as! SectionHeaderCell
-            cell.configure(with: makeOptionsHeaderInfo())
-            return cell
-        case .option(let index):
+        switch Sections(rawValue: indexPath.section) {
+        case .top:
+            let row = topSectionRows[indexPath.row]
+            switch row {
+            case .questionHeader:
+                let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SectionHeaderCell.self), for: indexPath) as! SectionHeaderCell
+                cell.configure(with: makeQuestionHeaderInfo())
+                return cell
+            case .questionField:
+                let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TextInputCell.self), for: indexPath) as! TextInputCell
+                cell.configure(with: makeQuestionFieldInfo())
+                cell.delegate = self
+                return cell
+            case .optionsHeader:
+                let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SectionHeaderCell.self), for: indexPath) as! SectionHeaderCell
+                cell.configure(with: makeOptionsHeaderInfo())
+                return cell
+            }
+        case .options:
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PollOptionCell.self), for: indexPath) as! PollOptionCell
             cell.delegate = self
-            cell.configure(with: makeOptionCellInfo(index: index))
+            cell.configure(with: makeOptionCellInfo(index: indexPath.row))
             return cell
         case .addOptionButton:
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ButtonCell.self), for: indexPath) as! ButtonCell
             cell.configure(with: addButtonTitle)
             cell.delegate = self
             return cell
+        case .none:
+            fatalError("Can't find section for indexPath: \(indexPath)")
         }
     }
 }
@@ -181,12 +211,11 @@ extension PollCreationViewController: TextInputCellDelegate {
 // MARK: - ButtonCellDelegate
 extension PollCreationViewController: ButtonCellDelegate {
     func didTapButton() {
-        guard let optionsHeaderRow = rows.firstIndex(of: .optionsHeader) else { return }
         options.append(.empty)
-        let optionRow = optionsHeaderRow + options.count
-        rows.insert(.option(options.count - 1), at: optionRow)
-        tableView.reloadData()
-        if let cell = tableView.cellForRow(at: IndexPath(row: optionRow, section: defaultSection)) as? PollOptionCell {
+        tableView.reloadSections(IndexSet(integer: optionsSectionIndex), with: .fade)
+        let indexPath = IndexPath(row: options.count - 1, section: optionsSectionIndex)
+        updateOptionsHeader()
+        if let cell = tableView.cellForRow(at: indexPath) as? PollOptionCell {
             cell.startEditing()
         }
     }
@@ -195,10 +224,15 @@ extension PollCreationViewController: ButtonCellDelegate {
 // MARK: - PollOptionCellDelegate
 extension PollCreationViewController: PollOptionCellDelegate {
     func didUpdateInput(from cell: PollOptionCell, with text: String?) {
+        guard let text,
+              let indexPath = tableView.indexPath(for: cell) else { return }
+        options[indexPath.row] = text
+    }
+
+    func didTapRemoveButton(from cell: PollOptionCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
-        guard let optionsFirstRow = rows.firstIndex(of: .option(.zero)) else { return }
-        
-        let optionIndex = indexPath.row - optionsFirstRow
-        options[optionIndex] = text ?? .empty
+        options.remove(at: indexPath.row)
+        tableView.reloadSections(IndexSet(integer: optionsSectionIndex), with: .fade)
+        updateOptionsHeader()
     }
 }

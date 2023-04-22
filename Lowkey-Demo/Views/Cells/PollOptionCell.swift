@@ -10,6 +10,7 @@ import UIKit
 
 protocol PollOptionCellDelegate: AnyObject {
     func didUpdateInput(from cell: PollOptionCell, with text: String?)
+    func didTapRemoveButton(from cell: PollOptionCell)
 }
 
 final class PollOptionCell: UITableViewCell {
@@ -72,6 +73,7 @@ final class PollOptionCell: UITableViewCell {
 
     private lazy var removeButton: UIButton = {
         let button = UIButton(type: .system)
+        button.addTarget(self, action: #selector(didTapRemoveButton), for: .touchUpInside)
         button.setImage(UIImage(systemName: "xmark"), for: .normal)
         button.tintColor = .white
         button.contentEdgeInsets = UIEdgeInsets(top: UIConstants.buttonContentInset,
@@ -109,6 +111,10 @@ private extension PollOptionCell {
             make.size.equalTo(UIConstants.removeButtonSize)
             make.center.equalTo(buttonView)
         }
+    }
+
+    @objc func didTapRemoveButton() {
+        delegate?.didTapRemoveButton(from: self)
     }
 }
 

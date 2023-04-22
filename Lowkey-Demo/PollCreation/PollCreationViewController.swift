@@ -166,8 +166,10 @@ extension PollCreationViewController: UITableViewDataSource {
 
 // MARK: - TextInputCellDelegate
 extension PollCreationViewController: TextInputCellDelegate {
-    func didUpdateInputCount(from cell: TextInputCell, with count: Int) {
-        updateHeaderCellInput(with: count)
+    func didUpdateInputCount(from cell: TextInputCell, with text: String?) {
+        guard let text else { return }
+        updateHeaderCellInput(with: text.count)
+        question = text
     }
 }
 

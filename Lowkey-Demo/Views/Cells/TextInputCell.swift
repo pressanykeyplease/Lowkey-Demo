@@ -9,7 +9,7 @@ import SnapKit
 import UIKit
 
 protocol TextInputCellDelegate: AnyObject {
-    func didUpdateInputCount(from cell: TextInputCell, with count: Int)
+    func didUpdateInputCount(from cell: TextInputCell, with text: String?)
 }
 
 final class TextInputCell: UITableViewCell {
@@ -90,7 +90,11 @@ extension TextInputCell: UITextFieldDelegate {
         let substringToReplace = textFieldText[rangeOfTextToReplace]
         let count = textFieldText.count - substringToReplace.count + string.count
         guard count <= lengthLimit else { return false }
-        delegate?.didUpdateInputCount(from: self, with: count)
+        guard let replacementRange = Range(range, in: textFieldText) else {
+            return false
+        }
+        let text = textFieldText.replacingCharacters(in: replacementRange, with: string)
+        delegate?.didUpdateInputCount(from: self, with: text)
         return true
     }
 }

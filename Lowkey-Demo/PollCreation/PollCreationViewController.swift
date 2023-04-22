@@ -120,6 +120,7 @@ private extension PollCreationViewController {
     func makeRightBarButtonItem() -> UIBarButtonItem {
         createBarButtonItem.configure(with: "Create")
         createBarButtonItem.set(isActive: false)
+        createBarButtonItem.delegate = self
         let item = UIBarButtonItem(customView: createBarButtonItem)
         return item
     }
@@ -298,5 +299,11 @@ extension PollCreationViewController: PollOptionCellDelegate {
     func didTapReturnButton(from cell: PollOptionCell) {
         guard options.count < optionsMaxAmount else { return }
         appendEmptyOption()
+    }
+}
+
+// MARK: - BarButtonItemDelegate
+extension PollCreationViewController: BarButtonItemDelegate {
+    func didTapBarButton() {
     }
 }

@@ -9,7 +9,7 @@ import SnapKit
 import UIKit
 
 protocol BarButtonItemDelegate: AnyObject {
-    func didTapButton()
+    func didTapBarButton()
 }
 
 final class BarButtonItem: UIView {
@@ -68,6 +68,6 @@ private extension BarButtonItem {
     }
 
     @objc func didTapButton() {
-        delegate?.didTapButton()
+        delegate?.didTapBarButton()
     }
 }

@@ -26,6 +26,10 @@ final class PollCell: UITableViewCell {
         configureOptionsStack()
     }
 
+    func vote(at index: Int) {
+        guard index < options.count else { return }
+    }
+
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

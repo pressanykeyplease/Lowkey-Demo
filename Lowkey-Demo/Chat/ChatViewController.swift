@@ -199,5 +199,10 @@ extension ChatViewController: PollCreationViewDelegate {
 // MARK: - PollCellDelegate
 extension ChatViewController: PollCellDelegate {
     func didTapVote(from cell: PollCell, index: Int) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        guard case var .poll(info) = messages[indexPath.row] else { return }
+        info.selectedOption = index
+        messages[indexPath.row] = .poll(info)
+        cell.vote(at: index)
     }
 }

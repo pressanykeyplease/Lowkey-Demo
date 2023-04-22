@@ -24,6 +24,10 @@ final class PollOptionCell: UITableViewCell {
         textField.text = info.text
     }
 
+    func startEditing() {
+        textField.becomeFirstResponder()
+    }
+
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

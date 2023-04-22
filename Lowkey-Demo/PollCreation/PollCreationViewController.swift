@@ -186,6 +186,9 @@ extension PollCreationViewController: ButtonCellDelegate {
         let optionRow = optionsHeaderRow + options.count
         rows.insert(.option(options.count - 1), at: optionRow)
         tableView.reloadData()
+        if let cell = tableView.cellForRow(at: IndexPath(row: optionRow, section: defaultSection)) as? PollOptionCell {
+            cell.startEditing()
+        }
     }
 }
 

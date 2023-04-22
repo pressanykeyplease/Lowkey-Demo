@@ -6,6 +6,7 @@
 //
 
 protocol ChatPresenterProtocol: AnyObject {
+    func didTapCreatePoll()
 }
 
 class ChatPresenter {
@@ -20,4 +21,7 @@ class ChatPresenter {
 }
 
 extension ChatPresenter: ChatPresenterProtocol {
+    func didTapCreatePoll() {
+        router.showPollCreation()
+    }
 }

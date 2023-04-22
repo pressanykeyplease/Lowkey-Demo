@@ -305,5 +305,15 @@ extension PollCreationViewController: PollOptionCellDelegate {
 // MARK: - BarButtonItemDelegate
 extension PollCreationViewController: BarButtonItemDelegate {
     func didTapBarButton() {
+        // Mock data + fields data
+        let poll = PollInfo(userpic: UIImage(named: "elon-musk"),
+                            pollType: "Public Poll",
+                            username: "Elon Musk",
+                            message: question,
+                            numberOfVotes: .zero,
+                            options: options,
+                            selectedOption: nil)
+        delegate?.didCreate(poll: poll)
+        dismiss(animated: true)
     }
 }

@@ -189,8 +189,8 @@ private extension PollCell {
     }
 
     func configureOptionsStack() {
-        optionsStackView.arrangedSubviews.forEach {
-            optionsStackView.removeArrangedSubview($0)
+        optionsStackView.subviews.forEach {
+            $0.removeFromSuperview()
         }
         options.forEach {
             let view = makeOptionView(with: $0)

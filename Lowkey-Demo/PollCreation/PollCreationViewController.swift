@@ -175,6 +175,17 @@ private extension PollCreationViewController {
             tableView.insertRows(at: [addButtonIndexPath], with: .fade)
         }
     }
+
+    func appendEmptyOption() {
+        options.append(.empty)
+        tableView.reloadSections(IndexSet(integer: Sections.options.rawValue), with: .fade)
+        let indexPath = IndexPath(row: options.count - 1, section: Sections.options.rawValue)
+        updateOptionsHeader()
+        updateAddButtonVisibility()
+        if let cell = tableView.cellForRow(at: indexPath) as? PollOptionCell {
+            cell.startEditing()
+        }
+    }
 }
 
 // MARK: - PollCreationViewProtocol
@@ -247,14 +258,7 @@ extension PollCreationViewController: TextInputCellDelegate {
 // MARK: - ButtonCellDelegate
 extension PollCreationViewController: ButtonCellDelegate {
     func didTapButton() {
-        options.append(.empty)
-        tableView.reloadSections(IndexSet(integer: Sections.options.rawValue), with: .fade)
-        let indexPath = IndexPath(row: options.count - 1, section: Sections.options.rawValue)
-        updateOptionsHeader()
-        updateAddButtonVisibility()
-        if let cell = tableView.cellForRow(at: indexPath) as? PollOptionCell {
-            cell.startEditing()
-        }
+        appendEmptyOption()
     }
 }
 
@@ -275,5 +279,7 @@ extension PollCreationViewController: PollOptionCellDelegate {
     }
 
     func didTapReturnButton(from cell: PollOptionCell) {
+        guard options.count < optionsMaxAmount else { return }
+        appendEmptyOption()
     }
 }

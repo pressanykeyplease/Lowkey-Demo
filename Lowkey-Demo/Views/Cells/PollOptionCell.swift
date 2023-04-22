@@ -8,8 +8,14 @@
 import SnapKit
 import UIKit
 
+protocol PollOptionCellDelegate: AnyObject {
+    func didUpdateInput(from cell: PollOptionCell, with text: String?)
+}
+
 final class PollOptionCell: UITableViewCell {
     // MARK: - Public
+    weak var delegate: PollOptionCellDelegate?
+
     func configure(with info: TextFieldCellInfo) {
         textField.attributedPlaceholder = NSAttributedString(
             string: info.placeholder,
@@ -46,6 +52,7 @@ final class PollOptionCell: UITableViewCell {
     // MARK: - Private properties
     private lazy var textField: UITextField = {
         let field = UITextField()
+        field.delegate = self
         field.backgroundColor = .Chat.textFieldColor
         field.layer.cornerRadius = UIConstants.textFieldCornerRadius
         field.font = .applying(style: .regular, size: UIConstants.fontSize)
@@ -98,5 +105,17 @@ private extension PollOptionCell {
             make.size.equalTo(UIConstants.removeButtonSize)
             make.center.equalTo(buttonView)
         }
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension PollOptionCell: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let textFieldText = textField.text,
+              let replacementRange = Range(range, in: textFieldText) else { return true }
+       
+        let text = textFieldText.replacingCharacters(in: replacementRange, with: string)
+        delegate?.didUpdateInput(from: self, with: text)
+        return true
     }
 }

@@ -22,8 +22,6 @@ class PollCreationViewController: UIViewController {
 
     // MARK: - Private constants
     private let questionMaxLength = 140
-    private let topSectionIndex = 0
-    private let optionsSectionIndex = 1
     private let optionsMaxAmount = 8
     private let numberOfRowsInButtonSection = 1
     private let questionHeaderTitle = "Question"
@@ -55,6 +53,7 @@ class PollCreationViewController: UIViewController {
     private var questionInputCount: Int = .zero
     private var question = String()
     private lazy var options = [String]()
+    private var shouldShowAddButton = true
 }
 
 // MARK: - Private functions
@@ -87,7 +86,7 @@ private extension PollCreationViewController {
         tableView.backgroundColor = .Chat.backgroundColor
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.leading.trailing.top.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.leading.trailing.top.bottom.equalToSuperview()
         }
     }
 
@@ -129,15 +128,27 @@ private extension PollCreationViewController {
     func updateHeaderCellInput(with count: Int) {
         guard let row = topSectionRows.firstIndex(of: .questionHeader) else { return }
         questionInputCount = count
-        let indexPath = IndexPath(row: row, section: topSectionIndex)
+        let indexPath = IndexPath(row: row, section: Sections.top.rawValue)
         tableView.reloadRows(at: [indexPath], with: .none)
     }
 
     func updateOptionsHeader() {
         guard let optionsHeaderRow = topSectionRows.firstIndex(of: .optionsHeader) else { return }
         let optionsHeaderIndexPath = IndexPath(row: optionsHeaderRow,
-                                               section: topSectionIndex)
+                                               section: Sections.top.rawValue)
         tableView.reloadRows(at: [optionsHeaderIndexPath], with: .none)
+    }
+
+    func updateAddButtonVisibility() {
+        let addButtonIndexPath = IndexPath(row: .zero, section: Sections.addOptionButton.rawValue)
+        if options.count == optionsMaxAmount, shouldShowAddButton {
+            shouldShowAddButton = false
+            tableView.deleteRows(at: [addButtonIndexPath], with: .fade)
+        }
+        if options.count < optionsMaxAmount, !shouldShowAddButton {
+            shouldShowAddButton = true
+            tableView.insertRows(at: [addButtonIndexPath], with: .fade)
+        }
     }
 }
 
@@ -158,7 +169,7 @@ extension PollCreationViewController: UITableViewDataSource {
         case .options:
             return options.count
         case .addOptionButton:
-            return numberOfRowsInButtonSection
+            return shouldShowAddButton ? numberOfRowsInButtonSection : .zero
         default:
             fatalError("Can't find section for index: \(section)")
         }
@@ -212,9 +223,10 @@ extension PollCreationViewController: TextInputCellDelegate {
 extension PollCreationViewController: ButtonCellDelegate {
     func didTapButton() {
         options.append(.empty)
-        tableView.reloadSections(IndexSet(integer: optionsSectionIndex), with: .fade)
-        let indexPath = IndexPath(row: options.count - 1, section: optionsSectionIndex)
+        tableView.reloadSections(IndexSet(integer: Sections.options.rawValue), with: .fade)
+        let indexPath = IndexPath(row: options.count - 1, section: Sections.options.rawValue)
         updateOptionsHeader()
+        updateAddButtonVisibility()
         if let cell = tableView.cellForRow(at: indexPath) as? PollOptionCell {
             cell.startEditing()
         }
@@ -232,7 +244,8 @@ extension PollCreationViewController: PollOptionCellDelegate {
     func didTapRemoveButton(from cell: PollOptionCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         options.remove(at: indexPath.row)
-        tableView.reloadSections(IndexSet(integer: optionsSectionIndex), with: .fade)
+        tableView.reloadSections(IndexSet(integer: Sections.options.rawValue), with: .fade)
         updateOptionsHeader()
+        updateAddButtonVisibility()
     }
 }

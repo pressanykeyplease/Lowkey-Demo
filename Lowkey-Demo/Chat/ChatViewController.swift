@@ -20,6 +20,17 @@ class ChatViewController: UIViewController {
         initialize()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+
     // MARK: - Override
     override var canBecomeFirstResponder: Bool {
         true
@@ -119,6 +130,19 @@ private extension ChatViewController {
     func send(message: MessageInfo) {
         messages.append(message)
         tableView.reloadData()
+        scrollToBottomMessage()
+    }
+
+    @objc func adjustForKeyboard(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            tableView.contentInset = .zero
+        } else {
+            tableView.contentInset = UIEdgeInsets(top: .zero, left: .zero, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: .zero)
+        }
+        tableView.scrollIndicatorInsets = tableView.contentInset
         scrollToBottomMessage()
     }
 }

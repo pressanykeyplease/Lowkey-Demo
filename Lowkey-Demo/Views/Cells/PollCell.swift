@@ -198,17 +198,18 @@ private extension PollCell {
         optionsStackView.subviews.forEach {
             $0.removeFromSuperview()
         }
-        options.forEach {
-            let view = makeOptionView(with: $0)
+        for (index, option) in options.enumerated() {
+            let view = makeOptionView(with: option, index: index)
             optionsStackView.addArrangedSubview(view)
         }
     }
 
-    func makeOptionView(with option: String) -> UIView {
+    func makeOptionView(with option: String, index: Int) -> UIView {
         let view = UIView()
         view.layer.cornerRadius = UIConstants.optionViewCornerRadius
         view.backgroundColor = .Chat.pollOptionColor.withAlphaComponent(UIConstants.optionAlpha)
         let button = UIButton(type: .system)
+        button.tag = index
         button.backgroundColor = .clear
         button.tintColor = .Chat.textColor
         button.contentHorizontalAlignment = .leading

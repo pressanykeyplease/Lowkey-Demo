@@ -11,6 +11,7 @@ import UIKit
 protocol PollOptionCellDelegate: AnyObject {
     func didUpdateInput(from cell: PollOptionCell, with text: String?)
     func didTapRemoveButton(from cell: PollOptionCell)
+    func didTapReturnButton(from cell: PollOptionCell)
 }
 
 final class PollOptionCell: UITableViewCell {
@@ -126,6 +127,11 @@ extension PollOptionCell: UITextFieldDelegate {
        
         let text = textFieldText.replacingCharacters(in: replacementRange, with: string)
         delegate?.didUpdateInput(from: self, with: text)
+        return true
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        delegate?.didTapReturnButton(from: self)
         return true
     }
 }

@@ -273,4 +273,7 @@ extension PollCreationViewController: PollOptionCellDelegate {
         updateOptionsHeader()
         updateAddButtonVisibility()
     }
+
+    func didTapReturnButton(from cell: PollOptionCell) {
+    }
 }

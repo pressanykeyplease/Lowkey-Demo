@@ -156,5 +156,8 @@ extension ChatViewController: ChatToolbarDelegate {
 // MARK: - PollCreationViewDelegate
 extension ChatViewController: PollCreationViewDelegate {
     func didCreate(poll: PollInfo) {
+        messages.append(.poll(poll))
+        tableView.reloadData()
+        scrollToBottomMessage()
     }
 }

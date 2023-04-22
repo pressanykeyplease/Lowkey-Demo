@@ -8,8 +8,14 @@
 import SnapKit
 import UIKit
 
+protocol PollCellDelegate: AnyObject {
+    func didTapVote(from cell: PollCell, index: Int)
+}
+
 final class PollCell: UITableViewCell {
     // MARK: - Public
+    weak var delegate: PollCellDelegate?
+
     func configure(with info: PollInfo) {
         userpicView.image = info.userpic
         pollTypeLabel.text = info.pollType

@@ -166,6 +166,7 @@ extension ChatViewController: UITableViewDataSource {
             return cell
         case .poll(let info):
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PollCell.self), for: indexPath) as! PollCell
+            cell.delegate = self
             cell.configure(with: info)
             return cell
         }
@@ -192,5 +193,11 @@ extension ChatViewController: ChatToolbarDelegate {
 extension ChatViewController: PollCreationViewDelegate {
     func didCreatePoll(with info: PollInfo) {
         send(message: .poll(info))
+    }
+}
+
+// MARK: - PollCellDelegate
+extension ChatViewController: PollCellDelegate {
+    func didTapVote(from cell: PollCell, index: Int) {
     }
 }

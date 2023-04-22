@@ -20,10 +20,22 @@ class PollCreationViewController: UIViewController {
         initialize()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardDidHideNotification, object: nil)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+
     // MARK: - Private constants
     private let questionMaxLength = 140
     private let optionsMaxAmount = 8
     private let numberOfRowsInButtonSection = 1
+    private let animationDuration: CGFloat = 0.2
     private let questionHeaderTitle = "Question"
     private let questionFieldPlaceholder = "Ask a question"
     private let optionsHeaderTitle = "Options"
@@ -103,6 +115,19 @@ private extension PollCreationViewController {
         customView.set(isActive: false)
         let item = UIBarButtonItem(customView: customView)
         return item
+    }
+
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            let keyboardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue.size.height
+            tableView.contentInset = UIEdgeInsets(top: .zero, left: .zero, bottom: keyboardHeight, right: .zero)
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        UIView.animate(withDuration: animationDuration) {
+            self.tableView.contentInset = UIEdgeInsets.zero
+        }
     }
 
     @objc func didTapDismissButton() {

@@ -210,6 +210,7 @@ private extension PollCell {
         view.backgroundColor = .Chat.pollOptionColor.withAlphaComponent(UIConstants.optionAlpha)
         let button = UIButton(type: .system)
         button.tag = index
+        button.addTarget(self, action: #selector(didTapOptionButton), for: .touchUpInside)
         button.backgroundColor = .clear
         button.tintColor = .Chat.textColor
         button.contentHorizontalAlignment = .leading
@@ -224,5 +225,9 @@ private extension PollCell {
             make.height.equalTo(UIConstants.optionViewHeight)
         }
         return view
+    }
+
+    @objc func didTapOptionButton(sender: UIButton) {
+        delegate?.didTapVote(from: self, index: sender.tag)
     }
 }

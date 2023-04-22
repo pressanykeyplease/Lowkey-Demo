@@ -155,7 +155,12 @@ extension ChatViewController: ChatToolbarDelegate {
     }
 
     func didTapSendButton() {
-        scrollToBottomMessage()
+        guard let text = toolbar.getText(), !text.isEmpty else { return }
+        toolbar.clearTextfield()
+        let info = TextMessageInfo(userpic: UIImage(named: "elon-musk"),
+                                   name: "Elon Musk",
+                                   message: text)
+        send(message: .text(info))
     }
 }
 

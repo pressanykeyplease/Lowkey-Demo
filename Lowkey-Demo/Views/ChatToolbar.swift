@@ -17,6 +17,14 @@ final class ChatToolbar: UIView {
     // MARK: - Public
     weak var delegate: ChatToolbarDelegate?
 
+    func getText() -> String? {
+        textField.text
+    }
+
+    func clearTextfield() {
+        textField.text = nil
+    }
+
     // MARK: - Init
     init() {
         super.init(frame: .zero)

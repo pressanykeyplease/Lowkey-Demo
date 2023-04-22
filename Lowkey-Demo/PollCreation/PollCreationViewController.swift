@@ -34,6 +34,7 @@ class PollCreationViewController: UIViewController {
     // MARK: - Private constants
     private let questionMaxLength = 140
     private let optionsMaxAmount = 8
+    private let optionsRequiredAmount = 2
     private let numberOfRowsInButtonSection = 1
     private let animationDuration: CGFloat = 0.2
     private let questionHeaderTitle = "Question"

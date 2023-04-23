@@ -22,6 +22,7 @@ final class PollCell: UITableViewCell {
         nameLabel.text = info.username
         messageLabel.text = info.message
         votesCountLabel.text = String(info.numberOfVotes)
+        votesLabel.text = getVotesLabelText(amount: info.numberOfVotes)
         options = info.options
         configureOptionsStack()
         setVote(at: info.selectedOption)
@@ -270,6 +271,7 @@ private extension PollCell {
     func increaseVotesCounter() {
         guard let votesCount = Int(votesCountLabel.text ?? .empty) else { return }
         votesCountLabel.text = "\(votesCount + 1)"
+        votesLabel.text = getVotesLabelText(amount: votesCount + 1)
     }
 
     func setVote(at index: Int?) {
@@ -283,7 +285,7 @@ private extension PollCell {
         }
     }
 
-    func getVotesLabel(amount: Int) -> String {
+    func getVotesLabelText(amount: Int) -> String {
         let formatString = NSLocalizedString(votesLabelIdentifier, comment: .empty)
         let resultString = String.localizedStringWithFormat(formatString, amount)
         return resultString

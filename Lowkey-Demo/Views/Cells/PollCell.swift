@@ -268,6 +268,5 @@ private extension PollCell {
     func increaseVotesCounter() {
         guard let votesCount = Int(votesCountLabel.text ?? .empty) else { return }
         votesCountLabel.text = "\(votesCount + 1)"
-        
     }
 }

@@ -72,6 +72,8 @@ final class PollCell: UITableViewCell {
         static let voteAnimationDuration: CGFloat = 0.3
         static let voteAnimationDelay: CGFloat = 0.1
     }
+
+    private let votesLabelIdentifier = "chatPollVotesCountLabel"
         
     // MARK: - Private properties
     private let userpicView: UIImageView = {
@@ -279,5 +281,11 @@ private extension PollCell {
         voteView.snp.makeConstraints { make in
             make.leading.trailing.top.bottom.equalToSuperview()
         }
+    }
+
+    func getVotesLabel(amount: Int) -> String {
+        let formatString = NSLocalizedString(votesLabelIdentifier, comment: .empty)
+        let resultString = String.localizedStringWithFormat(formatString, amount)
+        return resultString
     }
 }

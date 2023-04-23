@@ -242,8 +242,8 @@ private extension PollCell {
 
     func startVoteAnimation(at index: Int) {
         let optionView = optionsStackView.subviews[index]
-        let voteView = makeVoteView()
         guard let voteButton = optionView.subviews.first as? UIButton else { return }
+        let voteView = makeVoteView()
         optionView.insertSubview(voteView, belowSubview: voteButton)
         voteView.snp.makeConstraints { make in
             make.leading.top.bottom.equalToSuperview()

@@ -43,6 +43,7 @@ class ChatViewController: UIViewController {
     // MARK: - Private constants
     private enum UIConstants {
         static let tableViewBottomInset: CGFloat = 45
+        static let navigationBarDefaultHeight: CGFloat = 44
     }
 
     // MARK: - Private properties
@@ -86,8 +87,10 @@ private extension ChatViewController {
         tableView.register(PollCell.self, forCellReuseIdentifier: String(describing: PollCell.self))
         tableView.backgroundColor = .Chat.backgroundColor
         view.addSubview(tableView)
+        let navigationBarHeight = navigationController?.navigationBar.bounds.height ?? UIConstants.navigationBarDefaultHeight
         tableView.snp.makeConstraints { make in
-            make.leading.trailing.top.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(navigationBarHeight)
+            make.leading.trailing.equalToSuperview()
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(UIConstants.tableViewBottomInset)
         }
     }

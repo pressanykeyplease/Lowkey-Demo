@@ -202,6 +202,7 @@ extension ChatViewController: PollCellDelegate {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         guard case var .poll(info) = messages[indexPath.row] else { return }
         info.selectedOption = index
+        info.numberOfVotes += 1
         messages[indexPath.row] = .poll(info)
         cell.vote(at: index)
     }

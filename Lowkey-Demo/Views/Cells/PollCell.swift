@@ -28,6 +28,8 @@ final class PollCell: UITableViewCell {
 
     func vote(at index: Int) {
         guard index < options.count else { return }
+        startVoteAnimation(at: index)
+        increaseVotesCounter()
     }
 
     // MARK: - Init
@@ -66,6 +68,9 @@ final class PollCell: UITableViewCell {
         static let optionTextInsetX: CGFloat = 15
         static let optionViewHeight: CGFloat = 40
         static let optionAlpha: CGFloat = 0.15
+        static let voteInitialWidth: CGFloat = 0
+        static let voteAnimationDuration: CGFloat = 0.3
+        static let voteAnimationDelay: CGFloat = 0.1
     }
         
     // MARK: - Private properties
@@ -233,5 +238,36 @@ private extension PollCell {
 
     @objc func didTapOptionButton(sender: UIButton) {
         delegate?.didTapVote(from: self, index: sender.tag)
+    }
+
+    func startVoteAnimation(at index: Int) {
+        let optionView = optionsStackView.subviews[index]
+        let voteView = makeVoteView()
+        guard let voteButton = optionView.subviews.first as? UIButton else { return }
+        optionView.insertSubview(voteView, belowSubview: voteButton)
+        voteView.snp.makeConstraints { make in
+            make.leading.top.bottom.equalToSuperview()
+        }
+        DispatchQueue.main.asyncAfter(wallDeadline: .now() + UIConstants.voteAnimationDelay) {
+            voteView.snp.makeConstraints { make in
+                make.width.equalTo(optionView.bounds.width)
+            }
+            UIView.animate(withDuration: UIConstants.voteAnimationDuration) {
+                self.layoutIfNeeded()
+            }
+        }
+    }
+
+    func makeVoteView() -> UIView {
+        let voteView = UIView()
+        voteView.backgroundColor = .Chat.pollOptionColor
+        voteView.layer.cornerRadius = UIConstants.optionViewCornerRadius
+        return voteView
+    }
+
+    func increaseVotesCounter() {
+        guard let votesCount = Int(votesCountLabel.text ?? .empty) else { return }
+        votesCountLabel.text = "\(votesCount + 1)"
+        
     }
 }

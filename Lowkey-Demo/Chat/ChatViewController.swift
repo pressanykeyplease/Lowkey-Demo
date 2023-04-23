@@ -51,11 +51,11 @@ class ChatViewController: UIViewController {
     private let toolbar = ChatToolbar()
 
     private var messages: [MessageInfo] = [
-        .text(TextMessageInfo(userpic: UIImage(named: "elon-musk"), name: "Elon Musk", message: "I’m in also! Mike’s Diner would be a good choice 🔥🔥🔥 how about everyone else? Any ideas?")),
-        .text(TextMessageInfo(userpic: UIImage(named: "elon-musk"), name: "Elon Musk", message: "Sounds good to me!!!")),
-        .text(TextMessageInfo(userpic: UIImage(named: "elon-musk"), name: "Elon Musk", message: "@kellyhodges are you in???")),
-        .text(TextMessageInfo(userpic: UIImage(named: "elon-musk"), name: "Elon Musk", message: "Nice! 12 ppl in total. Let’s gather at the metro station!🚆🚆🚆")),
-        .text(TextMessageInfo(userpic: UIImage(named: "elon-musk"), name: "Elon Musk", message: "Okie dokie!!")),
+        .text(TextMessageInfo(userpic: UIImage(named: "sauli"), name: "Sauli Niinistö", message: "I’m in also! Mike’s Diner would be a good choice 🔥🔥🔥 how about everyone else? Any ideas?")),
+        .text(TextMessageInfo(userpic: UIImage(named: "sanna"), name: "Sanna Marin", message: "Sounds good to me!!!")),
+        .text(TextMessageInfo(userpic: UIImage(named: "antti"), name: "Antti Kaikkonen", message: "@kellyhodges are you in???")),
+        .text(TextMessageInfo(userpic: UIImage(named: "pekka"), name: "Pekka Haavisto", message: "Nice! 12 ppl in total. Let’s gather at the metro station!🚆🚆🚆")),
+        .text(TextMessageInfo(userpic: UIImage(named: "katri"), name: "Katri Kulmuni", message: "Okie dokie!!")),
         .poll(PollInfo(userpic: UIImage(named: "elon-musk"), pollType: "Public Poll", username: "Elon Musk", message: "What is the greatest NBA team in the history?", numberOfVotes: 3, options: ["Los Angeles Lakers", "Golden State Warriors", "Chicago Bulls", "Boston Celtics"], selectedOption: nil))
     ]
 }

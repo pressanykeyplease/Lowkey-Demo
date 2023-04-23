@@ -24,10 +24,10 @@ final class PollCell: UITableViewCell {
         votesCountLabel.text = String(info.numberOfVotes)
         options = info.options
         configureOptionsStack()
+        setVote(at: info.selectedOption)
     }
 
     func vote(at index: Int) {
-        guard index < options.count else { return }
         startVoteAnimation(at: index)
         increaseVotesCounter()
     }
@@ -268,5 +268,16 @@ private extension PollCell {
     func increaseVotesCounter() {
         guard let votesCount = Int(votesCountLabel.text ?? .empty) else { return }
         votesCountLabel.text = "\(votesCount + 1)"
+    }
+
+    func setVote(at index: Int?) {
+        guard let index else { return }
+        let optionView = optionsStackView.subviews[index]
+        guard let voteButton = optionView.subviews.first as? UIButton else { return }
+        let voteView = makeVoteView()
+        optionView.insertSubview(voteView, belowSubview: voteButton)
+        voteView.snp.makeConstraints { make in
+            make.leading.trailing.top.bottom.equalToSuperview()
+        }
     }
 }
